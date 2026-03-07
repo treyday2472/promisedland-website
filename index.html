@@ -171,6 +171,9 @@
       <p class="sub">No obligation. No fees. We'll contact you within 24 hours with a fair offer.</p>
 
       <form id="leadForm">
+
+        <!-- SECTION 1: Contact Info -->
+        <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold2);font-weight:700;margin-bottom:.75rem;">Your Contact Info</p>
         <div class="form-row">
           <div class="form-group">
             <label for="first_name">First Name *</label>
@@ -191,10 +194,13 @@
             <input type="email" id="email" name="email" placeholder="john@example.com" />
           </div>
         </div>
+
+        <!-- SECTION 2: Property -->
+        <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold2);font-weight:700;margin:.75rem 0 .75rem;">Property Info</p>
         <div class="form-row full">
           <div class="form-group">
             <label for="address">Property Address *</label>
-            <input type="text" id="address" name="address" placeholder="1234 Oak Street" required />
+            <input type="text" id="address" name="address" placeholder="Start typing your address…" required autocomplete="off" />
           </div>
         </div>
         <div class="form-row">
@@ -209,6 +215,32 @@
         </div>
         <div class="form-row">
           <div class="form-group">
+            <label for="property_type">Property Type</label>
+            <select id="property_type" name="property_type">
+              <option value="">Select...</option>
+              <option value="single_family">Single Family Home</option>
+              <option value="multi_family">Multi-Family (Duplex/Triplex)</option>
+              <option value="condo">Condo / Townhome</option>
+              <option value="mobile_home">Mobile Home</option>
+              <option value="land">Vacant Land</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="occupancy_status">Who's Living There?</label>
+            <select id="occupancy_status" name="occupancy_status">
+              <option value="">Select...</option>
+              <option value="owner_occupied">I live there</option>
+              <option value="vacant">Vacant</option>
+              <option value="rented">Tenant is living there</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- SECTION 3: Situation -->
+        <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold2);font-weight:700;margin:.75rem 0 .75rem;">Your Situation</p>
+        <div class="form-row">
+          <div class="form-group">
             <label for="why_sell">Why Are You Selling?</label>
             <select id="why_sell" name="why_sell">
               <option value="">Select a reason...</option>
@@ -219,6 +251,8 @@
               <option value="tired_landlord">Tired Landlord</option>
               <option value="relocating">Relocating</option>
               <option value="behind_payments">Behind on Payments</option>
+              <option value="probate">Probate / Estate Sale</option>
+              <option value="tax_lien">Tax Lien</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -233,10 +267,58 @@
             </select>
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="condition">Property Condition</label>
+            <select id="condition" name="condition">
+              <option value="">Select...</option>
+              <option value="excellent">Excellent — Move-in ready</option>
+              <option value="good">Good — Minor cosmetic work</option>
+              <option value="fair">Fair — Needs moderate repairs</option>
+              <option value="poor">Poor — Needs major repairs</option>
+              <option value="distressed">Distressed — Significant damage</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="repairs_needed">Repairs Needed?</label>
+            <select id="repairs_needed" name="repairs_needed">
+              <option value="">Select...</option>
+              <option value="none">No repairs needed</option>
+              <option value="cosmetic">Cosmetic only (paint, carpet)</option>
+              <option value="moderate">Moderate (kitchen, bath updates)</option>
+              <option value="major">Major (roof, foundation, HVAC)</option>
+              <option value="full_rehab">Full rehab needed</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="behind_on_payments">Behind on Mortgage Payments?</label>
+            <select id="behind_on_payments" name="behind_on_payments">
+              <option value="">Select...</option>
+              <option value="no">No, payments are current</option>
+              <option value="yes">Yes, I'm behind</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="listed_with_realtor">Currently Listed with a Realtor?</label>
+            <select id="listed_with_realtor" name="listed_with_realtor">
+              <option value="">Select...</option>
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label for="lowest_amount">What's the Lowest You'd Accept? (optional)</label>
+            <input type="text" id="lowest_amount" name="lowest_amount" placeholder="$ Your minimum price" />
+          </div>
+        </div>
         <div class="form-row full">
           <div class="form-group">
             <label for="notes">Anything Else We Should Know? (optional)</label>
-            <textarea id="notes" name="notes" placeholder="Tell us about the property, any liens, tenants, etc."></textarea>
+            <textarea id="notes" name="notes" placeholder="Tell us about the property, any liens, tenants, code violations, etc."></textarea>
           </div>
         </div>
 

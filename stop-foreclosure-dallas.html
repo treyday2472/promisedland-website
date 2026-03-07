@@ -172,6 +172,50 @@
             <input type="text" id="zip_code" name="zip_code" />
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="property_type">Property Type</label>
+            <select id="property_type" name="property_type">
+              <option value="">Select...</option>
+              <option value="single_family">Single Family Home</option>
+              <option value="multi_family">Multi-Family</option>
+              <option value="condo">Condo / Townhome</option>
+              <option value="mobile_home">Mobile Home</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="occupancy_status">Who's Living There?</label>
+            <select id="occupancy_status" name="occupancy_status">
+              <option value="">Select...</option>
+              <option value="owner_occupied">I live there</option>
+              <option value="vacant">Vacant</option>
+              <option value="rented">Tenant is living there</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="condition">Property Condition</label>
+            <select id="condition" name="condition">
+              <option value="">Select...</option>
+              <option value="excellent">Excellent — Move-in ready</option>
+              <option value="good">Good — Minor cosmetic work</option>
+              <option value="fair">Fair — Needs moderate repairs</option>
+              <option value="poor">Poor — Needs major repairs</option>
+              <option value="distressed">Distressed — Significant damage</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="behind_on_payments">How Far Behind Are You?</label>
+            <select id="behind_on_payments" name="behind_on_payments">
+              <option value="yes">Yes, I'm behind</option>
+              <option value="1_3_months">1–3 months</option>
+              <option value="4_6_months">4–6 months</option>
+              <option value="6_plus_months">6+ months</option>
+            </select>
+          </div>
+        </div>
         <div class="form-row full">
           <div class="form-group">
             <label for="notes">When is your foreclosure sale date? Any other details?</label>

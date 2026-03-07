@@ -192,13 +192,13 @@
         <div class="form-row full">
           <div class="form-group">
             <label for="address">Property Address *</label>
-            <input type="text" id="address" name="address" required placeholder="Street address in Dallas" />
+            <input type="text" id="address" name="address" required placeholder="Start typing your address…" autocomplete="off" />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="city">City</label>
-            <input type="text" id="city" name="city" value="Dallas" />
+            <input type="text" id="city" name="city" placeholder="Dallas" />
           </div>
           <div class="form-group">
             <label for="zip_code">Zip Code</label>
@@ -207,27 +207,97 @@
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="why_sell">Why Are You Selling?</label>
-            <select id="why_sell" name="why_sell">
+            <label for="property_type">Property Type</label>
+            <select id="property_type" name="property_type">
               <option value="">Select...</option>
-              <option value="foreclosure">Foreclosure</option>
-              <option value="inherited">Inherited Property</option>
-              <option value="divorce">Divorce</option>
-              <option value="repairs">Needs Repairs</option>
-              <option value="tired_landlord">Tired Landlord</option>
-              <option value="relocating">Relocating</option>
+              <option value="single_family">Single Family Home</option>
+              <option value="multi_family">Multi-Family</option>
+              <option value="condo">Condo / Townhome</option>
+              <option value="mobile_home">Mobile Home</option>
+              <option value="land">Vacant Land</option>
               <option value="other">Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="timeline">Timeline</label>
+            <label for="occupancy_status">Who's Living There?</label>
+            <select id="occupancy_status" name="occupancy_status">
+              <option value="">Select...</option>
+              <option value="owner_occupied">I live there</option>
+              <option value="vacant">Vacant</option>
+              <option value="rented">Tenant is living there</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="why_sell">Why Are You Selling?</label>
+            <select id="why_sell" name="why_sell">
+              <option value="">Select...</option>
+              <option value="foreclosure">Facing Foreclosure</option>
+              <option value="inherited">Inherited Property</option>
+              <option value="divorce">Divorce</option>
+              <option value="repairs">Too Many Repairs</option>
+              <option value="tired_landlord">Tired Landlord</option>
+              <option value="relocating">Relocating</option>
+              <option value="behind_payments">Behind on Payments</option>
+              <option value="probate">Probate / Estate</option>
+              <option value="tax_lien">Tax Lien</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timeline">How Soon Do You Need to Sell?</label>
             <select id="timeline" name="timeline">
               <option value="">Select...</option>
-              <option value="asap">ASAP</option>
+              <option value="asap">As Soon as Possible</option>
               <option value="30_days">Within 30 Days</option>
               <option value="60_days">Within 60 Days</option>
-              <option value="flexible">Flexible</option>
+              <option value="flexible">I'm Flexible</option>
             </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="condition">Property Condition</label>
+            <select id="condition" name="condition">
+              <option value="">Select...</option>
+              <option value="excellent">Excellent — Move-in ready</option>
+              <option value="good">Good — Minor cosmetic work</option>
+              <option value="fair">Fair — Needs moderate repairs</option>
+              <option value="poor">Poor — Needs major repairs</option>
+              <option value="distressed">Distressed — Significant damage</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="repairs_needed">Repairs Needed?</label>
+            <select id="repairs_needed" name="repairs_needed">
+              <option value="">Select...</option>
+              <option value="none">No repairs needed</option>
+              <option value="cosmetic">Cosmetic only</option>
+              <option value="moderate">Moderate updates</option>
+              <option value="major">Major repairs</option>
+              <option value="full_rehab">Full rehab needed</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="behind_on_payments">Behind on Mortgage?</label>
+            <select id="behind_on_payments" name="behind_on_payments">
+              <option value="">Select...</option>
+              <option value="no">No, payments are current</option>
+              <option value="yes">Yes, I'm behind</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="lowest_amount">Lowest Price You'd Accept? (optional)</label>
+            <input type="text" id="lowest_amount" name="lowest_amount" placeholder="$" />
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label for="notes">Anything else we should know? (optional)</label>
+            <textarea id="notes" name="notes" placeholder="Liens, code violations, tenants, damage, etc."></textarea>
           </div>
         </div>
         <button type="submit" class="btn btn-gold btn-full" id="formSubmitBtn">Get My Free Cash Offer →</button>

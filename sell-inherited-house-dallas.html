@@ -175,10 +175,56 @@
             <input type="text" id="zip_code" name="zip_code" />
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="property_type">Property Type</label>
+            <select id="property_type" name="property_type">
+              <option value="">Select...</option>
+              <option value="single_family">Single Family Home</option>
+              <option value="multi_family">Multi-Family</option>
+              <option value="condo">Condo / Townhome</option>
+              <option value="mobile_home">Mobile Home</option>
+              <option value="land">Vacant Land</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="occupancy_status">Who's Living There?</label>
+            <select id="occupancy_status" name="occupancy_status">
+              <option value="">Select...</option>
+              <option value="vacant">Vacant</option>
+              <option value="owner_occupied">Family member lives there</option>
+              <option value="rented">Tenant is living there</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="condition">Property Condition</label>
+            <select id="condition" name="condition">
+              <option value="">Select...</option>
+              <option value="excellent">Excellent — Move-in ready</option>
+              <option value="good">Good — Minor cosmetic work</option>
+              <option value="fair">Fair — Needs moderate repairs</option>
+              <option value="poor">Poor — Needs major repairs</option>
+              <option value="distressed">Distressed — Significant damage</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timeline">How Soon Do You Need to Sell?</label>
+            <select id="timeline" name="timeline">
+              <option value="">Select...</option>
+              <option value="asap">As Soon as Possible</option>
+              <option value="30_days">Within 30 Days</option>
+              <option value="60_days">Within 60 Days</option>
+              <option value="flexible">I'm Flexible / In Probate</option>
+            </select>
+          </div>
+        </div>
         <div class="form-row full">
           <div class="form-group">
             <label for="notes">Tell us more (optional)</label>
-            <textarea id="notes" name="notes" placeholder="e.g. In probate, 3 heirs, property hasn't been touched in 2 years..."></textarea>
+            <textarea id="notes" name="notes" placeholder="e.g. In probate, 3 heirs, property hasn't been touched in 2 years, back taxes owed..."></textarea>
           </div>
         </div>
         <input type="hidden" name="why_sell" value="inherited" />
