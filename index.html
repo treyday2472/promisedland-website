@@ -323,9 +323,40 @@
   </div>
 </footer>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initAutocomplete" async defer></script>
 <script>
+/* ---- Google Places Autocomplete ---- */
+function initAutocomplete() {
+  var input = document.getElementById("address");
+  var ac = new google.maps.places.Autocomplete(input, {
+    types: ["address"],
+    componentRestrictions: { country: "us" },
+  });
+  ac.addListener("place_changed", function () {
+    var place = ac.getPlace();
+    var components = place.address_components || [];
+    var get = function (type) {
+      var c = components.find(function (x) { return x.types.indexOf(type) !== -1; });
+      return c ? c.long_name : "";
+    };
+    var getShort = function (type) {
+      var c = components.find(function (x) { return x.types.indexOf(type) !== -1; });
+      return c ? c.short_name : "";
+    };
+    var streetNum = get("street_number");
+    var route = get("route");
+    input.value = streetNum ? streetNum + " " + route : route;
+    var cityField = document.getElementById("city");
+    var zipField  = document.getElementById("zip_code");
+    if (cityField) cityField.value = get("locality") || get("sublocality") || get("neighborhood");
+    if (zipField)  zipField.value  = get("postal_code");
+    // store state for submission
+    input.dataset.state = getShort("administrative_area_level_1");
+  });
+}
+
 /* ---- Form submission → DealBot backend ---- */
-const BACKEND = "https://app.promisedlandpropertysolutions.com/api/public/web-leads/submit";
+const BACKEND = "https://app.promisedlandpropertysolutions.com/api/web-leads/submit";
 
 document.getElementById("leadForm").addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -335,7 +366,7 @@ document.getElementById("leadForm").addEventListener("submit", async function (e
 
   const data = {};
   new FormData(this).forEach((v, k) => { data[k] = v; });
-  data.state = "TX";
+  data.state = document.getElementById("address").dataset.state || "TX";
   data.source = "website_homepage";
 
   try {
