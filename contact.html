@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Promised Land Property Solutions | Dallas TX</title>
+  <meta name="description" content="Contact Promised Land Property Solutions in Dallas TX. We buy houses for cash. Reach out today to get a free no-obligation offer on your property." />
+  <link rel="canonical" href="https://www.promisedlandpropertysolutions.com/contact.html" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Promised Land <span>Property Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sell-my-house-fast-dallas.html">Sell Fast</a></li>
+      <li><a href="stop-foreclosure-dallas.html">Stop Foreclosure</a></li>
+      <li><a href="sell-inherited-house-dallas.html">Inherited House</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" style="padding:4rem 1.5rem 3rem;">
+  <h1>Contact <em>Promised Land Property Solutions</em></h1>
+  <p>Have questions? Ready to get an offer? Fill out the form and we'll get back to you within 24 hours.</p>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="form-wrap">
+      <h2>Send Us a Message</h2>
+      <p class="sub">We respond to every inquiry within 24 hours, often much faster.</p>
+      <form id="leadForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" required />
+          </div>
+          <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" />
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label for="address">Property Address (if applicable)</label>
+            <input type="text" id="address" name="address" placeholder="Leave blank if just a general question" />
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-group">
+            <label for="notes">Your Message *</label>
+            <textarea id="notes" name="notes" required placeholder="Tell us about your situation or question..." style="min-height:130px;"></textarea>
+          </div>
+        </div>
+        <input type="hidden" name="city" value="Dallas" />
+        <input type="hidden" name="state" value="TX" />
+        <button type="submit" class="btn btn-gold btn-full" id="formSubmitBtn">Send Message →</button>
+      </form>
+      <div class="form-success" id="formSuccess">✅ Message received! We'll get back to you within 24 hours.</div>
+      <div class="form-error" id="formError">Something went wrong. Please try again.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">Promised Land <span>Property Solutions</span></div>
+      <p>Local cash home buyers serving the Dallas–Fort Worth metroplex.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sell-my-house-fast-dallas.html">Sell My House Fast</a></li>
+        <li><a href="stop-foreclosure-dallas.html">Stop Foreclosure</a></li>
+        <li><a href="sell-inherited-house-dallas.html">Inherited House</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get an Offer</h4>
+      <ul>
+        <li><a href="index.html#offer">Free Cash Offer</a></li>
+        <li><a href="stop-foreclosure-dallas.html#offer">Foreclosure Help</a></li>
+        <li><a href="sell-inherited-house-dallas.html#offer">Inherited Property</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Promised Land Property Solutions. Dallas, TX. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const BACKEND = "https://app.promisedlandpropertysolutions.com/api/public/web-leads/submit";
+document.getElementById("leadForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const btn = document.getElementById("formSubmitBtn");
+  btn.disabled = true; btn.textContent = "Sending…";
+  const data = {};
+  new FormData(this).forEach((v, k) => { data[k] = v; });
+  data.source = "website_contact";
+  // address is optional on contact page — provide a placeholder if blank
+  if (!data.address) data.address = "General Inquiry";
+  try {
+    const res = await fetch(BACKEND, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data) });
+    const json = await res.json();
+    if (json.ok) { document.getElementById("formSuccess").style.display = "block"; this.reset(); }
+    else throw new Error();
+  } catch { document.getElementById("formError").style.display = "block"; }
+  finally { btn.disabled = false; btn.textContent = "Send Message →"; }
+});
+</script>
+</body>
+</html>
