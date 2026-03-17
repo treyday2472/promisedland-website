@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dallas County Foreclosures 2026 | Public Notice List | Promised Land Property Solutions</title>
+  <meta name="description" content="Browse current Dallas County foreclosure notices. Updated regularly from public county records. If your home is on this list, you may still have options — get a free cash offer before the sale date." />
+  <link rel="canonical" href="https://www.promisedlandpropertysolutions.com/dallas-foreclosures" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Dallas County foreclosure notice?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A foreclosure notice (Notice of Trustee's Sale) is a public filing by a lender indicating that a property owner has defaulted on their mortgage. In Texas, the sale is typically scheduled for the first Tuesday of the month." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I sell my house if it is in foreclosure in Dallas TX?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. As long as the foreclosure sale has not happened yet, you can sell your home, pay off the lender, and potentially walk away with remaining equity. Cash buyers like Promised Land Property Solutions can close in as few as 7 days." }
+      },
+      {
+        "@type": "Question",
+        "name": "How often is this Dallas foreclosure list updated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "This list is updated regularly from Dallas County public records. Records shown are current published notices — not historical data." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .data-hero {
+      background: linear-gradient(135deg, #0f1a2e 0%, #1a2540 60%, #0f1a2e 100%);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+    .data-hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: .6rem; }
+    .data-hero p  { color: var(--gray); max-width: 680px; margin: 0 auto; }
+    .data-meta {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      justify-content: center; margin-top: 1.25rem;
+    }
+    .data-meta span {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px;
+      padding: .3rem .9rem;
+      font-size: .82rem;
+      color: var(--gray);
+    }
+    .data-meta span strong { color: var(--gold2); }
+
+    /* Records table */
+    .records-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    .records-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+    .records-toolbar input {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 6px;
+      padding: .45rem .9rem;
+      color: var(--white);
+      font-size: .875rem;
+      width: 240px;
+    }
+    .records-toolbar input::placeholder { color: var(--gray); }
+    .records-toolbar input:focus { outline: none; border-color: var(--gold2); }
+    #rec-count { color: var(--gray); font-size: .82rem; margin-left: auto; }
+
+    .records-table-wrap { overflow-x: auto; }
+    table.rec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+    }
+    table.rec-table thead th {
+      background: rgba(255,255,255,.05);
+      color: var(--gold2);
+      padding: .6rem .85rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      white-space: nowrap;
+    }
+    table.rec-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      transition: background .15s;
+    }
+    table.rec-table tbody tr:hover { background: rgba(255,255,255,.03); }
+    table.rec-table td {
+      padding: .6rem .85rem;
+      color: #c8d0da;
+      vertical-align: top;
+    }
+    table.rec-table td.addr { color: var(--white); font-weight: 500; }
+    table.rec-table td.date { white-space: nowrap; }
+    .score-pill {
+      display: inline-block;
+      padding: .15rem .55rem;
+      border-radius: 12px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .score-hot  { background: rgba(239,68,68,.2);  color: #f87171; }
+    .score-warm { background: rgba(234,179,8,.15); color: #fbbf24; }
+    .score-cold { background: rgba(255,255,255,.07); color: var(--gray); }
+
+    #no-results {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--gray);
+      display: none;
+    }
+    #loading-msg {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--gray);
+    }
+
+    /* CTA band above footer */
+    .data-cta {
+      background: linear-gradient(135deg, #1a2a1a 0%, #1a300a 100%);
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .data-cta h2 { font-size: 1.6rem; margin-bottom: .6rem; }
+    .data-cta p  { color: var(--gray); max-width: 600px; margin: 0 auto 1.5rem; }
+
+    /* Lead form */
+    .data-form-wrap {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 680px;
+      margin: 2rem auto 0;
+      text-align: left;
+    }
+    .data-form-wrap h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Promised Land <span>Property Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/sell-my-house-fast-dallas">Sell Fast</a></li>
+      <li><a href="/stop-foreclosure-dallas">Stop Foreclosure</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="#get-offer" class="nav-cta">Get Cash Offer</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="data-hero">
+  <h1>Dallas County Foreclosure Notices — <em style="color:var(--gold2);">Public Record List</em></h1>
+  <p>Current trustee sale notices filed with Dallas County. Updated regularly from public records.
+     If your property appears on this list, you may still have options before the sale date.</p>
+  <div class="data-meta">
+    <span>📍 Dallas County, TX</span>
+    <span>Source: <strong>Dallas County Clerk — Public Filings</strong></span>
+    <span id="meta-count">Loading…</span>
+    <span id="meta-updated">—</span>
+  </div>
+</div>
+
+<!-- RECORDS TABLE -->
+<div class="records-section">
+
+  <div class="records-toolbar">
+    <input type="search" id="rec-search" placeholder="Search address or owner…" autocomplete="off" />
+    <span id="rec-count"></span>
+  </div>
+
+  <div id="loading-msg">Loading records…</div>
+  <div id="no-results">No records match your search.</div>
+
+  <div class="records-table-wrap" id="table-wrap" style="display:none;">
+    <table class="rec-table" aria-label="Dallas County Foreclosure Notices">
+      <thead>
+        <tr>
+          <th>Property Address</th>
+          <th>City / Zip</th>
+          <th>Owner of Record</th>
+          <th>Sale Date</th>
+          <th>Filing Date</th>
+          <th>Case #</th>
+          <th>Signal</th>
+        </tr>
+      </thead>
+      <tbody id="rec-tbody"></tbody>
+    </table>
+  </div>
+
+  <p class="small" style="color:var(--gray);margin-top:1.25rem;font-size:.8rem;">
+    These are <strong>public court records</strong> obtained from Dallas County Clerk filings.
+    Data is provided for informational purposes only.
+    If your property appears here and you need help, <a href="#get-offer" style="color:var(--gold2);">contact us</a>.
+  </p>
+</div>
+
+<!-- WHY THIS PAGE EXISTS -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <h2 class="section-title">If Your Home Is on This List</h2>
+    <p class="section-sub">A foreclosure notice does not mean it's over. You may still have time to act.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <h3>You Have a Deadline</h3>
+        <p>In Texas, the foreclosure sale is typically on the first Tuesday of the month. Once the sale happens, your options disappear.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💵</div>
+        <h3>A Cash Sale Can Stop It</h3>
+        <p>If we can close before your sale date, we pay off the lender. You stop the foreclosure and protect your credit history.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>We Close Fast</h3>
+        <p>We can often close in 7–14 days — fast enough to beat most foreclosure timelines. No agent, no commissions, no repairs.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>No Pressure</h3>
+        <p>We'll give you a free cash offer. You decide if it works for you. No obligation, no fees, no runaround.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + FORM -->
+<div class="data-cta" id="get-offer">
+  <h2>Is Your Property on This List? <em style="color:var(--gold2);">Get a Free Cash Offer</em></h2>
+  <p>Tell us about your property. We'll give you a no-obligation cash offer — fast enough to act before the sale date.</p>
+
+  <div class="data-form-wrap">
+    <h3>Request a Free Cash Offer</h3>
+    <form id="leadForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first_name">First Name *</label>
+          <input type="text" id="first_name" name="first_name" required />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" required placeholder="Best number to reach you" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="address">Property Address *</label>
+          <input type="text" id="address" name="address" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" value="Dallas" />
+        </div>
+        <div class="form-group">
+          <label for="zip_code">Zip Code</label>
+          <input type="text" id="zip_code" name="zip_code" />
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="notes">When is your sale date? Any other details?</label>
+          <textarea id="notes" name="notes" placeholder="e.g. Sale date is April 1, I'm about $8,000 behind…"></textarea>
+        </div>
+      </div>
+      <input type="hidden" name="why_sell" value="foreclosure" />
+      <input type="hidden" name="timeline" value="asap" />
+      <button type="submit" class="btn btn-gold btn-full" id="formSubmitBtn">Get My Free Cash Offer →</button>
+    </form>
+    <div class="form-success" id="formSuccess">✅ We received your info. We'll call you within hours.</div>
+    <div class="form-error" id="formError">Something went wrong. Please try again or call us directly.</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <h2 class="section-title" style="text-align:center;">Dallas Foreclosure — Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What does a trustee sale notice mean?</div>
+        <div class="faq-a">It means a lender has filed public notice that they intend to foreclose on a property. In Texas, the sale is scheduled for the first Tuesday of the following month, after a 21-day posting period. The homeowner still has time to act before the auction.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How fast can you close in Dallas?</div>
+        <div class="faq-a">In most cases we can close in 7–14 days. If you have an upcoming foreclosure sale date, tell us and we'll prioritize your case to close before it hits.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need to make repairs before selling?</div>
+        <div class="faq-a">No. We buy houses as-is, in any condition. You don't need to clean, repair, or stage anything.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will I owe any fees or commissions?</div>
+        <div class="faq-a">No agent commissions. No closing fees paid by you. We cover the costs and make the process as simple as possible.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where does this foreclosure data come from?</div>
+        <div class="faq-a">All records are sourced from Dallas County public filings — specifically trustee sale notices published by the Dallas County Clerk. These are public court records available to anyone.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">Promised Land <span>Property Solutions</span></div>
+      <p>We buy houses for cash in Dallas, Fort Worth, Arlington, Irving, and surrounding DFW cities. Fast, fair, and hassle-free.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="/sell-my-house-fast-dallas">Sell My House Fast Dallas</a></li>
+        <li><a href="/stop-foreclosure-dallas">Stop Foreclosure Dallas</a></li>
+        <li><a href="/sell-inherited-house-dallas">Sell Inherited House</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Foreclosure Help</h4>
+      <ul>
+        <li><a href="/stop-foreclosure-dallas">Stop Foreclosure Dallas</a></li>
+        <li><a href="/behind-on-mortgage-dallas">Behind on Mortgage</a></li>
+        <li><a href="/sell-my-house-fast-dallas">Cash Home Buyers Dallas</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Promised Land Property Solutions. Dallas, TX. All rights reserved.</p>
+    <p style="margin-top:.4rem;">We are real estate investors, not licensed real estate agents.</p>
+    <p style="margin-top:.6rem;"><a href="/privacy" style="color:var(--gray);text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms" style="color:var(--gray);text-decoration:none;">Terms &amp; Conditions</a></p>
+  </div>
+</footer>
+
+<!-- LEAD FORM HANDLER -->
+<script>
+(function () {
+  var form    = document.getElementById('leadForm');
+  var btn     = document.getElementById('formSubmitBtn');
+  var success = document.getElementById('formSuccess');
+  var error   = document.getElementById('formError');
+
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+
+    fetch('https://app.promisedlandpropertysolutions.com/api/web-leads/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (d.ok || d.status === 'ok') {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        error.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Get My Free Cash Offer →';
+      }
+    })
+    .catch(function () {
+      error.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Get My Free Cash Offer →';
+    });
+  });
+})();
+</script>
+
+<!-- FORECLOSURE RECORDS LOADER -->
+<script>
+(function () {
+  var tbody    = document.getElementById('rec-tbody');
+  var tableWrap = document.getElementById('table-wrap');
+  var loadMsg  = document.getElementById('loading-msg');
+  var noRes    = document.getElementById('no-results');
+  var search   = document.getElementById('rec-search');
+  var countEl  = document.getElementById('rec-count');
+  var metaCount   = document.getElementById('meta-count');
+  var metaUpdated = document.getElementById('meta-updated');
+
+  var allRows = [];
+
+  function scoreClass(score) {
+    if (!score && score !== 0) return '';
+    if (score >= 60) return 'score-hot';
+    if (score >= 35) return 'score-warm';
+    return 'score-cold';
+  }
+  function scoreLabel(score) {
+    if (!score && score !== 0) return '—';
+    if (score >= 60) return 'HOT';
+    if (score >= 35) return 'Warm';
+    return 'Low';
+  }
+
+  function toTitleCase(str) {
+    if (!str) return '';
+    return str.replace(/\w\S*/g, function (w) {
+      return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+    });
+  }
+
+  function formatDate(iso) {
+    if (!iso) return '—';
+    // iso is YYYY-MM-DD or ISO datetime
+    var d = iso.slice(0, 10);
+    var parts = d.split('-');
+    if (parts.length !== 3) return iso;
+    return parts[1] + '/' + parts[2] + '/' + parts[0].slice(2);
+  }
+
+  function buildRow(r) {
+    var addr  = toTitleCase(r.address) || '—';
+    var city  = toTitleCase(r.city)    || '';
+    var zip   = r.zip || '';
+    var owner = toTitleCase(r.owner)   || '—';
+    var cityZip = [city, zip].filter(Boolean).join(' ');
+
+    var sc = scoreClass(r.score);
+    var sl = scoreLabel(r.score);
+    var scoreHtml = sc
+      ? '<span class="score-pill ' + sc + '">' + sl + '</span>'
+      : '<span class="score-pill score-cold">—</span>';
+
+    return '<tr data-search="' + (addr + ' ' + owner + ' ' + cityZip).toLowerCase() + '">' +
+      '<td class="addr">' + addr + '</td>' +
+      '<td>' + (cityZip || '—') + '</td>' +
+      '<td>' + owner + '</td>' +
+      '<td class="date">' + formatDate(r.sale_date) + '</td>' +
+      '<td class="date">' + formatDate(r.filing_date) + '</td>' +
+      '<td style="font-size:.78rem;color:var(--gray);">' + (r.case_number || '—') + '</td>' +
+      '<td>' + scoreHtml + '</td>' +
+      '</tr>';
+  }
+
+  function renderRows(rows) {
+    if (!rows.length) {
+      tableWrap.style.display = 'none';
+      noRes.style.display = 'block';
+      countEl.textContent = '0 records';
+      return;
+    }
+    noRes.style.display = 'none';
+    tableWrap.style.display = 'block';
+    tbody.innerHTML = rows.map(buildRow).join('');
+    countEl.textContent = rows.length + ' record' + (rows.length !== 1 ? 's' : '');
+  }
+
+  function applySearch(q) {
+    if (!q) { renderRows(allRows); return; }
+    var lq = q.toLowerCase();
+    renderRows(allRows.filter(function (r) {
+      return (
+        (r.address  || '').toLowerCase().includes(lq) ||
+        (r.owner    || '').toLowerCase().includes(lq) ||
+        (r.city     || '').toLowerCase().includes(lq) ||
+        (r.zip      || '').toLowerCase().includes(lq)
+      );
+    }));
+  }
+
+  search.addEventListener('input', function () { applySearch(search.value.trim()); });
+
+  fetch('/data/dallas_foreclosures.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      loadMsg.style.display = 'none';
+      allRows = data.records || [];
+
+      metaCount.innerHTML   = '<strong>' + data.total + '</strong> active notices';
+      if (data.exported_at) {
+        var d = new Date(data.exported_at);
+        metaUpdated.textContent = 'Updated ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
+      if (!allRows.length) {
+        loadMsg.style.display = 'block';
+        loadMsg.textContent = 'No published records yet — check back soon.';
+        return;
+      }
+      renderRows(allRows);
+    })
+    .catch(function (err) {
+      loadMsg.textContent = 'Records temporarily unavailable. Please check back shortly.';
+      console.error('Failed to load foreclosure data:', err);
+    });
+})();
+</script>
+
+</body>
+</html>

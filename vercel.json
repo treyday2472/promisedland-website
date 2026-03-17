@@ -1,13 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/dallas-foreclosures",
-      "destination": "https://app.promisedlandpropertysolutions.com/dallas-foreclosures",
-      "permanent": false
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
