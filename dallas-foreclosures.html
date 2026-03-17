@@ -202,12 +202,9 @@
       <thead>
         <tr>
           <th>Property Address</th>
-          <th>City / Zip</th>
           <th>Owner of Record</th>
           <th>Sale Date</th>
-          <th>Filing Date</th>
           <th>Case #</th>
-          <th>Signal</th>
         </tr>
       </thead>
       <tbody id="rec-tbody"></tbody>
@@ -479,25 +476,13 @@
 
   function buildRow(r) {
     var addr  = toTitleCase(r.address) || '—';
-    var city  = toTitleCase(r.city)    || '';
-    var zip   = r.zip || '';
     var owner = toTitleCase(r.owner)   || '—';
-    var cityZip = [city, zip].filter(Boolean).join(' ');
 
-    var sc = scoreClass(r.score);
-    var sl = scoreLabel(r.score);
-    var scoreHtml = sc
-      ? '<span class="score-pill ' + sc + '">' + sl + '</span>'
-      : '<span class="score-pill score-cold">—</span>';
-
-    return '<tr data-search="' + (addr + ' ' + owner + ' ' + cityZip).toLowerCase() + '">' +
+    return '<tr data-search="' + (addr + ' ' + owner).toLowerCase() + '">' +
       '<td class="addr">' + addr + '</td>' +
-      '<td>' + (cityZip || '—') + '</td>' +
       '<td>' + owner + '</td>' +
       '<td class="date">' + formatDate(r.sale_date) + '</td>' +
-      '<td class="date">' + formatDate(r.filing_date) + '</td>' +
       '<td style="font-size:.78rem;color:var(--gray);">' + (r.case_number || '—') + '</td>' +
-      '<td>' + scoreHtml + '</td>' +
       '</tr>';
   }
 
