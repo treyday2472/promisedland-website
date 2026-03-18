@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balch Springs Foreclosure List 2026 | Dallas County | Promised Land Property Solutions</title>
+  <meta name="description" content="Browse current Balch Springs foreclosure notices from Dallas County public records. Updated regularly. If your home is on this list, you may still have options — get a free cash offer." />
+  <link rel="canonical" href="https://www.promisedlandpropertysolutions.com/balch-springs-foreclosures" />
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .data-hero {
+      background: linear-gradient(135deg, #0f1a2e 0%, #1a2540 60%, #0f1a2e 100%);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+    .data-hero h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: .6rem; }
+    .data-hero p  { color: var(--gray); max-width: 680px; margin: 0 auto; }
+    .data-meta {
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      justify-content: center; margin-top: 1.25rem;
+    }
+    .data-meta span {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 20px; padding: .3rem .9rem;
+      font-size: .82rem; color: var(--gray);
+    }
+    .data-meta span strong { color: var(--gold2); }
+    .records-section { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+    .records-toolbar { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; margin-bottom: 1.25rem; }
+    .records-toolbar input {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15);
+      border-radius: 6px; padding: .45rem .9rem; color: var(--white);
+      font-size: .875rem; width: 240px;
+    }
+    .records-toolbar input::placeholder { color: var(--gray); }
+    .records-toolbar input:focus { outline: none; border-color: var(--gold2); }
+    #rec-count { color: var(--gray); font-size: .82rem; margin-left: auto; }
+    .records-table-wrap { overflow-x: auto; }
+    table.rec-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    table.rec-table thead th {
+      background: rgba(255,255,255,.05); color: var(--gold2);
+      padding: .6rem .85rem; text-align: left; font-weight: 600;
+      font-size: .78rem; text-transform: uppercase; letter-spacing: .04em;
+      border-bottom: 1px solid rgba(255,255,255,.1); white-space: nowrap;
+    }
+    table.rec-table tbody tr { border-bottom: 1px solid rgba(255,255,255,.05); transition: background .15s; }
+    table.rec-table tbody tr:hover { background: rgba(255,255,255,.03); }
+    table.rec-table td { padding: .6rem .85rem; color: #c8d0da; vertical-align: top; }
+    table.rec-table td.addr { color: var(--white); font-weight: 500; }
+    table.rec-table td.date { white-space: nowrap; }
+    #no-results { text-align: center; padding: 3rem 1rem; color: var(--gray); display: none; }
+    #loading-msg { text-align: center; padding: 3rem 1rem; color: var(--gray); }
+    .data-cta {
+      background: linear-gradient(135deg, #1a2a1a 0%, #1a300a 100%);
+      border-top: 1px solid rgba(255,255,255,.07); padding: 3rem 1.5rem; text-align: center;
+    }
+    .data-cta h2 { font-size: 1.6rem; margin-bottom: .6rem; }
+    .data-cta p  { color: var(--gray); max-width: 600px; margin: 0 auto 1.5rem; }
+    .data-form-wrap {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px; padding: 2rem; max-width: 680px; margin: 2rem auto 0; text-align: left;
+    }
+    .data-form-wrap h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+    .breadcrumb { max-width: 1100px; margin: 1.25rem auto 0; padding: 0 1.5rem; font-size: .82rem; color: var(--gray); }
+    .breadcrumb a { color: var(--gray); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Promised Land <span>Property Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/sell-my-house-fast-dallas">Sell Fast</a></li>
+      <li><a href="/stop-foreclosure-dallas">Stop Foreclosure</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="#get-offer" class="nav-cta">Get Cash Offer</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="/dallas-foreclosures">&larr; Dallas County Foreclosure List</a>
+</div>
+
+<!-- HERO -->
+<div class="data-hero">
+  <h1>Balch Springs Foreclosure Notices &mdash; <em style="color:var(--gold2);">Public Record List</em></h1>
+  <p>Current trustee sale notices for properties in Balch Springs, TX from Dallas County public records.
+     Updated regularly. If your property appears here, you may still have options before the sale date.</p>
+  <div class="data-meta">
+    <span>&#128205; Balch Springs, Dallas County TX</span>
+    <span>Source: <strong>Dallas County Clerk &mdash; Public Filings</strong></span>
+    <span id="meta-count">Loading&hellip;</span>
+    <span id="meta-updated">&mdash;</span>
+  </div>
+</div>
+
+<!-- RECORDS TABLE -->
+<div class="records-section">
+  <div class="records-toolbar">
+    <input type="search" id="rec-search" placeholder="Search address or owner&hellip;" autocomplete="off" />
+    <span id="rec-count"></span>
+  </div>
+  <div id="loading-msg">Loading records&hellip;</div>
+  <div id="no-results">No Balch Springs records match your search.</div>
+  <div class="records-table-wrap" id="table-wrap" style="display:none;">
+    <table class="rec-table" aria-label="Balch Springs Foreclosure Notices">
+      <thead>
+        <tr>
+          <th>Property Address</th>
+          <th>Owner of Record</th>
+          <th>Sale Date</th>
+          <th>Case #</th>
+        </tr>
+      </thead>
+      <tbody id="rec-tbody"></tbody>
+    </table>
+  </div>
+  <p style="color:var(--gray);margin-top:1.25rem;font-size:.8rem;">
+    These are <strong>public court records</strong> obtained from Dallas County Clerk filings.
+    Data is provided for informational purposes only.
+    If your property appears here and you need help, <a href="#get-offer" style="color:var(--gold2);">contact us</a>.
+  </p>
+</div>
+
+<!-- INFO CARDS -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <h2 class="section-title">If Your Balch Springs Home Is on This List</h2>
+    <p class="section-sub">A foreclosure notice does not mean it is over. You may still have time to act.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">&#128197;</div>
+        <h3>You Have a Deadline</h3>
+        <p>In Texas, the foreclosure sale is typically on the first Tuesday of the month. Once the sale happens, your options disappear.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#128181;</div>
+        <h3>A Cash Sale Can Stop It</h3>
+        <p>If we can close before your sale date, we pay off the lender. You stop the foreclosure and protect your credit history.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9889;</div>
+        <h3>We Close Fast</h3>
+        <p>We can often close in 7&ndash;14 days &mdash; fast enough to beat most foreclosure timelines. No agent, no commissions, no repairs.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#129309;</div>
+        <h3>No Pressure</h3>
+        <p>We will give you a free cash offer. You decide if it works for you. No obligation, no fees, no runaround.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + LEAD FORM -->
+<div class="data-cta" id="get-offer">
+  <h2>Is Your Balch Springs Property on This List? <em style="color:var(--gold2);">Get a Free Cash Offer</em></h2>
+  <p>Tell us about your property. We will give you a no-obligation cash offer fast enough to act before the sale date.</p>
+  <div class="data-form-wrap">
+    <h3>Request a Free Cash Offer</h3>
+    <form id="leadForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="first_name">First Name *</label>
+          <input type="text" id="first_name" name="first_name" required />
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone *</label>
+          <input type="tel" id="phone" name="phone" required placeholder="Best number to reach you" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="address">Property Address *</label>
+          <input type="text" id="address" name="address" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city_field">City</label>
+          <input type="text" id="city_field" name="city" value="Balch Springs" />
+        </div>
+        <div class="form-group">
+          <label for="zip_code">Zip Code</label>
+          <input type="text" id="zip_code" name="zip_code" />
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="notes">When is your sale date? Any other details?</label>
+          <textarea id="notes" name="notes" placeholder="e.g. Sale date is April 1, I am about $8,000 behind&hellip;"></textarea>
+        </div>
+      </div>
+      <input type="hidden" name="why_sell" value="foreclosure" />
+      <input type="hidden" name="timeline" value="asap" />
+      <input type="hidden" name="source_detail" value="SEO &mdash; balch-springs-foreclosures" />
+      <div style="margin-bottom:.9rem;padding:.65rem .75rem;background:rgba(0,0,0,.06);border-radius:6px;border:1px solid rgba(0,0,0,.08);">
+        <label style="display:flex;align-items:flex-start;gap:.6rem;cursor:pointer;margin:0;">
+          <input type="checkbox" name="sms_consent" value="yes" required
+                 style="margin-top:.25rem;flex-shrink:0;width:1.1rem;height:1.1rem;accent-color:#c8930a;">
+          <span style="font-size:.8rem;line-height:1.5;color:#555;">
+            By checking this box, you agree to receive text messages from Promised Land Property Solutions.
+            Reply STOP to opt out. Reply HELP for help. Message frequency varies. Message and data rates may apply.
+            <a href="https://www.promisedlandpropertysolutions.com/privacy" target="_blank" style="color:#333;text-decoration:underline;">Privacy Policy</a>
+            &amp; <a href="https://www.promisedlandpropertysolutions.com/terms" target="_blank" style="color:#333;text-decoration:underline;">Terms &amp; Conditions</a>.
+          </span>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-gold btn-full" id="formSubmitBtn">Get My Free Cash Offer &rarr;</button>
+    </form>
+    <div class="form-success" id="formSuccess">&#9989; We received your info. We will call you within hours.</div>
+    <div class="form-error" id="formError">Something went wrong. Please try again or call us directly.</div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <h2 class="section-title" style="text-align:center;">Balch Springs Foreclosure &mdash; Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What does a trustee sale notice mean in Balch Springs?</div>
+        <div class="faq-a">It means a lender has filed public notice that they intend to foreclose on a property in Dallas County, TX. In Texas, the sale is scheduled for the first Tuesday of the following month after a 21-day posting period. The homeowner still has time to act before the auction.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I sell my Balch Springs house if it is in foreclosure?</div>
+        <div class="faq-a">Yes. As long as the foreclosure sale has not happened yet, you can sell your home, pay off the lender, and potentially walk away with remaining equity. Cash buyers like Promised Land Property Solutions can close in as few as 7 days.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How fast can you close on a Balch Springs property?</div>
+        <div class="faq-a">In most cases we can close in 7&ndash;14 days. If you have an upcoming foreclosure sale date, tell us and we will prioritize your case to close before it hits.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Where does this Balch Springs foreclosure data come from?</div>
+        <div class="faq-a">All records are sourced from Dallas County public filings &mdash; specifically trustee sale notices published by the Dallas County Clerk. These are public court records. This page shows only records for properties located in Balch Springs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">Promised Land <span>Property Solutions</span></div>
+      <p>We buy houses for cash in Dallas, Fort Worth, Arlington, Irving, and surrounding DFW cities. Fast, fair, and hassle-free.</p>
+    </div>
+    <div>
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="/dallas-foreclosures">Dallas County Foreclosures</a></li>
+        <li><a href="/sell-my-house-fast-dallas">Sell My House Fast Dallas</a></li>
+        <li><a href="/stop-foreclosure-dallas">Stop Foreclosure Dallas</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Foreclosure Help</h4>
+      <ul>
+        <li><a href="/stop-foreclosure-dallas">Stop Foreclosure Dallas</a></li>
+        <li><a href="/behind-on-mortgage-dallas">Behind on Mortgage</a></li>
+        <li><a href="/dallas-foreclosures">Dallas County Foreclosure List</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Promised Land Property Solutions. Dallas, TX. All rights reserved.</p>
+    <p style="margin-top:.4rem;">We are real estate investors, not licensed real estate agents.</p>
+    <p style="margin-top:.6rem;"><a href="/privacy" style="color:var(--gray);text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms" style="color:var(--gray);text-decoration:none;">Terms &amp; Conditions</a></p>
+  </div>
+</footer>
+
+<!-- LEAD FORM HANDLER -->
+<script>
+(function () {
+  var form = document.getElementById('leadForm');
+  var btn  = document.getElementById('formSubmitBtn');
+  var ok   = document.getElementById('formSuccess');
+  var err  = document.getElementById('formError');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); btn.disabled = true; btn.textContent = 'Sending…';
+    var d = {}; new FormData(form).forEach(function (v, k) { d[k] = v; });
+    fetch('https://app.promisedlandpropertysolutions.com/api/web-leads/submit', {
+      method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(d),
+    }).then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j.ok || j.status === 'ok') { form.style.display = 'none'; ok.style.display = 'block'; }
+        else { err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Get My Free Cash Offer →'; }
+      }).catch(function () { err.style.display = 'block'; btn.disabled = false; btn.textContent = 'Get My Free Cash Offer →'; });
+  });
+})();
+</script>
+
+<!-- RECORDS LOADER — filters Dallas County export to Balch Springs only -->
+<script>
+(function () {
+  var CITY_KEY = 'balchsprings';
+  function normCity(c) { return (c || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+  function toTitle(s) {
+    return (s || '').replace(/\w\S*/g, function (w) { return w[0].toUpperCase() + w.slice(1).toLowerCase(); });
+  }
+  function fmtDate(iso) {
+    if (!iso) return '—'; var p = iso.slice(0,10).split('-');
+    return p.length === 3 ? p[1]+'/'+p[2]+'/'+p[0].slice(2) : iso;
+  }
+  var tbody = document.getElementById('rec-tbody');
+  var wrap  = document.getElementById('table-wrap');
+  var load  = document.getElementById('loading-msg');
+  var none  = document.getElementById('no-results');
+  var srch  = document.getElementById('rec-search');
+  var cnt   = document.getElementById('rec-count');
+  var mc    = document.getElementById('meta-count');
+  var mu    = document.getElementById('meta-updated');
+  var rows  = [];
+
+  function row(r) {
+    var a = toTitle(r.address)||'—', o = toTitle(r.owner)||'—';
+    return '<tr data-s="'+(a+' '+o).toLowerCase()+'">'+
+      '<td class="addr">'+a+'</td><td>'+o+'</td>'+
+      '<td class="date">'+fmtDate(r.sale_date)+'</td>'+
+      '<td style="font-size:.78rem;color:var(--gray);">'+(r.case_number||'—')+'</td></tr>';
+  }
+  function render(rr) {
+    if (!rr.length) { wrap.style.display='none'; none.style.display='block'; cnt.textContent='0 records'; return; }
+    none.style.display='none'; wrap.style.display='block';
+    tbody.innerHTML=rr.map(row).join(''); cnt.textContent=rr.length+' record'+(rr.length!==1?'s':'');
+  }
+  srch.addEventListener('input', function () {
+    var q = srch.value.trim().toLowerCase();
+    render(q ? rows.filter(function(r){ return (r.address||'').toLowerCase().includes(q)||(r.owner||'').toLowerCase().includes(q); }) : rows);
+  });
+
+  fetch('/data/dallas_foreclosures.json')
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(data){
+      load.style.display='none';
+      rows = (data.records||[]).filter(function(r){ return normCity(r.city)===CITY_KEY; });
+      mc.innerHTML='<strong>'+rows.length+'</strong> active notices in Balch Springs';
+      if (data.exported_at) {
+        var d=new Date(data.exported_at);
+        mu.textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+      }
+      if (!rows.length) {
+        load.style.display='block';
+        load.textContent='No current foreclosure notices for Balch Springs. Check back soon.';
+        var lk=document.createElement('p'); lk.style.cssText='text-align:center;margin-top:.75rem;';
+        lk.innerHTML='<a href="/dallas-foreclosures" style="color:var(--gold2);">View all Dallas County foreclosures →</a>';
+        load.insertAdjacentElement('afterend',lk);
+        return;
+      }
+      render(rows);
+    }).catch(function(e){ load.textContent='Records temporarily unavailable. Please check back shortly.'; console.error(e); });
+})();
+</script>
+
+</body>
+</html>

@@ -218,6 +218,12 @@
   </p>
 </div>
 
+<!-- BROWSE BY CITY — populated dynamically from the JSON -->
+<div id="city-nav-section" style="max-width:1100px;margin:0 auto;padding:0 1.5rem 2rem;display:none;">
+  <h2 style="font-size:1.1rem;font-weight:600;margin-bottom:.85rem;color:var(--white);">Browse Foreclosures by City</h2>
+  <div id="city-links" style="display:flex;flex-wrap:wrap;gap:.5rem;"></div>
+</div>
+
 <!-- WHY THIS PAGE EXISTS -->
 <section class="section section-alt">
   <div class="section-inner">
@@ -512,6 +518,49 @@
     }));
   }
 
+  // Slug map: normalized city key → URL slug (must match created HTML files)
+  var CITY_SLUGS = {
+    'desoto':       'desoto',
+    'garland':      'garland',
+    'cedarhill':    'cedar-hill',
+    'duncanville':  'duncanville',
+    'balchsprings': 'balch-springs',
+    'glennheights': 'glenn-heights',
+    'lancaster':    'lancaster',
+    'mesquite':     'mesquite'
+  };
+  // Friendly display names keyed by normalized name
+  var CITY_LABELS = {
+    'desoto': 'DeSoto', 'garland': 'Garland', 'cedarhill': 'Cedar Hill',
+    'duncanville': 'Duncanville', 'balchsprings': 'Balch Springs',
+    'glennheights': 'Glenn Heights', 'lancaster': 'Lancaster', 'mesquite': 'Mesquite'
+  };
+
+  function normCity(c) { return (c || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+
+  function buildCityNav(rows) {
+    var counts = {};
+    rows.forEach(function (r) {
+      var k = normCity(r.city);
+      if (k) counts[k] = (counts[k] || 0) + 1;
+    });
+    var linksEl = document.getElementById('city-links');
+    var section = document.getElementById('city-nav-section');
+    if (!linksEl || !section) return;
+    var html = '';
+    Object.keys(counts).sort().forEach(function (k) {
+      var slug  = CITY_SLUGS[k];
+      var label = CITY_LABELS[k] || k;
+      if (!slug) return; // no page yet for this city
+      html += '<a href="/' + slug + '-foreclosures" style="' +
+        'display:inline-block;padding:.35rem .85rem;border-radius:20px;' +
+        'background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);' +
+        'color:var(--gold2);font-size:.83rem;text-decoration:none;">' +
+        label + ' <span style="opacity:.6;font-size:.75rem;">(' + counts[k] + ')</span></a>';
+    });
+    if (html) { linksEl.innerHTML = html; section.style.display = 'block'; }
+  }
+
   search.addEventListener('input', function () { applySearch(search.value.trim()); });
 
   fetch('/data/dallas_foreclosures.json')
@@ -535,6 +584,7 @@
         return;
       }
       renderRows(allRows);
+      buildCityNav(allRows);
     })
     .catch(function (err) {
       loadMsg.textContent = 'Records temporarily unavailable. Please check back shortly.';
