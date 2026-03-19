@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-03-19T04:00:44.744541+00:00",
+  "exported_at": "2026-03-19T04:01:02.435086+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
-  "total": 36,
+  "total": 35,
   "records": [
     {
       "id": 1203,
@@ -92,17 +92,6 @@
       "filing_date": null,
       "case_number": "20-000475",
       "score": 40
-    },
-    {
-      "id": 1195,
-      "address": "211 HAMDEN LANE, MESQUITE, TX 75149",
-      "city": "Mesquite",
-      "zip": "75149",
-      "owner": "Lone Ranger Construction, Inc, a Texas Corporation Mateo Price, President",
-      "sale_date": "2026-04-07",
-      "filing_date": null,
-      "case_number": "26-000026",
-      "score": 10
     },
     {
       "id": 1194,
