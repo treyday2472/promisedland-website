@@ -1,16 +1,38 @@
 {
-  "exported_at": "2026-03-19T01:20:46.102999+00:00",
+  "exported_at": "2026-03-19T03:59:52.254865+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
-  "total": 30,
+  "total": 36,
   "records": [
+    {
+      "id": 1203,
+      "address": "1214 CHASE LN SEAGOVILLE, TX 75159",
+      "city": "",
+      "zip": "",
+      "owner": "Aaron D Moore",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
     {
       "id": 1202,
       "address": "3002 BRIARBROOK DRIVE, Seagoville, TX 75159",
       "city": "Seagoville",
       "zip": "75159",
       "owner": "CAROLYN D. ROLAND",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1201,
+      "address": "2913 Alto Drive Sachse, Tx 75048",
+      "city": "",
+      "zip": "",
+      "owner": "Keerthi Roy Indupalli",
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "",
@@ -270,6 +292,17 @@
       "score": 40
     },
     {
+      "id": 1162,
+      "address": "516 MIDWAY DR DESOTO, TX 75115",
+      "city": "",
+      "zip": "",
+      "owner": "Oliver Mock AND Doris Mock",
+      "sale_date": "2022-07-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
       "id": 1158,
       "address": "4827-4829 TREMONT ST, DALLAS, TX 75246",
       "city": "Dallas",
@@ -303,6 +336,17 @@
       "score": 40
     },
     {
+      "id": 821,
+      "address": "516 MIDWAY DR DESOTO, TX 75115",
+      "city": "",
+      "zip": "",
+      "owner": "Oliver Mock AND Doris Mock",
+      "sale_date": "2022-07-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
       "id": 819,
       "address": "2000 FLORA LANE, DESOTO, TX 75115",
       "city": "Desoto",
@@ -314,6 +358,17 @@
       "score": 40
     },
     {
+      "id": 758,
+      "address": "2146 Aspen Dr, Dallas, Tx",
+      "city": "Dallas",
+      "zip": "",
+      "owner": "Kenneth Isaac Jacobs and Andrea Bethany Jacobs",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "202100203942",
+      "score": 40
+    },
+    {
       "id": 1160,
       "address": "2538 Camel Court Dallas, Texas 75241",
       "city": "",
@@ -322,6 +377,17 @@
       "sale_date": "2026-04-07",
       "filing_date": "2026-02-19",
       "case_number": "201400329112",
+      "score": 50
+    },
+    {
+      "id": 1169,
+      "address": "710 INTREPID DRIVE, Garland, TX 75043",
+      "city": "Garland",
+      "zip": "75043",
+      "owner": "Pattie Estate of O'Donnell",
+      "sale_date": "2026-04-07",
+      "filing_date": "2026-02-12",
+      "case_number": "",
       "score": 50
     },
     {
