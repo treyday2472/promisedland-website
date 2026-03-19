@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-03-19T03:59:52.254865+00:00",
+  "exported_at": "2026-03-19T04:00:44.744541+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
@@ -208,7 +208,7 @@
       "address": "1824 E. GRAUWYLER ROAD, IRVING, TX 75061",
       "city": "Irving",
       "zip": "75061",
-      "owner": "ANTONIO ROMAN.",
+      "owner": "Antonio Roman",
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "26-000052",
