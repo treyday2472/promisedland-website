@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-03-19T04:01:02.435086+00:00",
+  "exported_at": "2026-03-20T00:48:50.791738+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
-  "total": 35,
+  "total": 49,
   "records": [
     {
       "id": 1203,
@@ -127,6 +127,28 @@
       "score": 40
     },
     {
+      "id": 1190,
+      "address": "2808 TURTLE DOVE LANE, Mesquite, TX 75181",
+      "city": "Mesquite",
+      "zip": "75181",
+      "owner": "Belinda K Soules",
+      "sale_date": "2029-04-07",
+      "filing_date": null,
+      "case_number": "200900218890",
+      "score": 40
+    },
+    {
+      "id": 1188,
+      "address": "603 ZOLLMAN CT, LANCASTER, TX 75146",
+      "city": "Lancaster",
+      "zip": "75146",
+      "owner": "LATOYAD. JARVIS",
+      "sale_date": "2016-10-31",
+      "filing_date": null,
+      "case_number": "201600311555",
+      "score": 40
+    },
+    {
       "id": 1187,
       "address": "213 BARRY LANE, Lancaster, TX 75146",
       "city": "Lancaster",
@@ -157,6 +179,28 @@
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "201600278981",
+      "score": 40
+    },
+    {
+      "id": 1184,
+      "address": "1307 PRAIRIE DRIVE, Lancaster, TX 75146",
+      "city": "Lancaster",
+      "zip": "75146",
+      "owner": "RAYMOND PETRY",
+      "sale_date": "2026-02-09",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1183,
+      "address": "1068 Bumble Bee Drive, Lancaster, TX 75134",
+      "city": "Lancaster",
+      "zip": "75134",
+      "owner": "Yvonne Arthur",
+      "sale_date": "2026-02-11",
+      "filing_date": null,
+      "case_number": "201700121346",
       "score": 40
     },
     {
@@ -259,6 +303,28 @@
       "score": 40
     },
     {
+      "id": 1170,
+      "address": "1003 WYNNEWOOD DRIVE GLENN HEIGHTS, TX 75154",
+      "city": "",
+      "zip": "",
+      "owner": "Michael A Knighton AND Deborah Knighton",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1165,
+      "address": "1511 Lime LeafLane, Duncanville, TX 75137",
+      "city": "Duncanville",
+      "zip": "75137",
+      "owner": "Yolanda A. Gary",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
       "id": 1164,
       "address": "918 GREENWAY DRIVE, DUNCANVILLE, TX 75137",
       "city": "Duncanville",
@@ -292,6 +358,17 @@
       "score": 40
     },
     {
+      "id": 1159,
+      "address": "2612 South Boulevard, Dallas, Tx 75215",
+      "city": "Dallas",
+      "zip": "75215",
+      "owner": "JANICE TEMPLETON",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "20070394439",
+      "score": 40
+    },
+    {
       "id": 1158,
       "address": "4827-4829 TREMONT ST, DALLAS, TX 75246",
       "city": "Dallas",
@@ -303,6 +380,50 @@
       "score": 40
     },
     {
+      "id": 1157,
+      "address": "13610 Brookgreen Dr, Dallas, Tx 75240",
+      "city": "Dallas",
+      "zip": "75240",
+      "owner": "Cameron O'neal",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1156,
+      "address": "238 Glencaim Dr, Dallas, TX 75232-4026",
+      "city": "Dallas",
+      "zip": "75232",
+      "owner": "Librado Gurrola",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1155,
+      "address": "431 Kinslow Dr. Dallas, Tx 75217",
+      "city": "",
+      "zip": "",
+      "owner": "Jose A Minjares Amaya",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1154,
+      "address": "914 STILLMEADOW ROAD, DALLAS, TX 75232",
+      "city": "Dallas",
+      "zip": "75232",
+      "owner": "James A. Reddick and Beverly J. Reddick",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "19-001026",
+      "score": 40
+    },
+    {
       "id": 824,
       "address": "405 KEARSARGE STREET, Desoto, TX 75115",
       "city": "Desoto",
@@ -311,6 +432,17 @@
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "201600353793",
+      "score": 40
+    },
+    {
+      "id": 823,
+      "address": "528 BUFFALO CREEK DRIVE, Desoto, TX 75115",
+      "city": "Desoto",
+      "zip": "75115",
+      "owner": "Stephen Barryer And Laturia Barryer",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "202200112861",
       "score": 40
     },
     {
@@ -344,6 +476,28 @@
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "26-000436",
+      "score": 40
+    },
+    {
+      "id": 816,
+      "address": "2913 Alto Drive Sachse, TX 75048",
+      "city": "",
+      "zip": "",
+      "owner": "Keerthi Roy Indupalli",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 800,
+      "address": "2808 Turtle Dove Lane, Mesquite, Tx 75181",
+      "city": "Mesquite",
+      "zip": "75181",
+      "owner": "STACY HUMPHRIES",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "202500069259",
       "score": 40
     },
     {
