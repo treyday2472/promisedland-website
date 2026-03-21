@@ -20,6 +20,7 @@
     history: [],          // [{role, content}]
     askedName: false,
     askedPhone: false,
+    intakeSlots: {},      // canonical field values collected so far — synced with backend
   };
 
   // ---------- Styles ----------
@@ -314,6 +315,7 @@
           visitor_email: state.visitorEmail,
           contact_id: state.contactId,
           session_state: state.sessionState,
+          intake_slots: state.intakeSlots,     // persisted slot state — prevents re-asks
         }),
       });
 
@@ -326,6 +328,7 @@
         state.history.push({ role: "assistant", content: reply });
         state.sessionState = json.session_state || "chatting";
         if (json.contact_id) state.contactId = json.contact_id;
+        if (json.intake_slots) state.intakeSlots = json.intake_slots;
 
         // Lead successfully created via chatbot function call
         if (json.lead_created && json.lead_id && !state.leadCreated) {
