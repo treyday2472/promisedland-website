@@ -50,17 +50,218 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Sell Your House Fast in <em>Dallas, TX</em><br>— No Repairs. No Fees. No Hassle.</h1>
-  <p>We buy houses in any condition, any situation. Get a fair cash offer in 24 hours and close in as little as 7 days.</p>
-  <div class="hero-badges">
-    <span class="badge">✓ No Realtor Fees</span>
-    <span class="badge">✓ No Repairs Needed</span>
-    <span class="badge">✓ Close In 7 Days</span>
-    <span class="badge">✓ Cash Offer in 24 Hours</span>
+<!-- HERO — 2-COLUMN: copy left / form right -->
+<section class="hero hero-split" id="offer">
+  <div class="hero-inner">
+
+    <!-- LEFT: Headline + trust copy -->
+    <div class="hero-copy">
+      <h1>Sell Your House Fast in <em>Dallas, TX</em><br>— No Repairs. No Fees. No Hassle.</h1>
+      <p>We buy houses in any condition, any situation. Get a fair cash offer in 24 hours and close in as little as 7 days.</p>
+      <div class="hero-badges">
+        <span class="badge">✓ No Realtor Fees</span>
+        <span class="badge">✓ No Repairs Needed</span>
+        <span class="badge">✓ Close In 7 Days</span>
+        <span class="badge">✓ Cash Offer in 24 Hours</span>
+      </div>
+      <ul class="hero-bullets">
+        <li>⚖️ Facing Foreclosure</li>
+        <li>🏚️ Needs Major Repairs</li>
+        <li>📜 Inherited a House</li>
+        <li>💔 Going Through Divorce</li>
+        <li>🏘️ Tired Landlord</li>
+        <li>💸 Behind on Payments</li>
+        <li>📋 Probate / Estate Sale</li>
+        <li>🌍 Relocating Out of State</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: Seller lead form (10DLC compliant) -->
+    <div class="hero-form-wrap">
+      <h2>Get Your <em>Free Cash Offer</em> Today</h2>
+      <p class="sub">No obligation. No fees. We'll contact you within 24 hours.</p>
+
+      <form id="leadForm">
+
+        <!-- ── Contact Info ── -->
+        <p class="form-section-label">Contact Info</p>
+        <div class="form-row2" style="margin-bottom:.65rem;">
+          <div class="form-group">
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:.55rem;">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" placeholder="(214) 555-0100" required />
+          <p class="sms-note">We will text you about your property request.</p>
+        </div>
+        <div class="form-group" style="margin-bottom:.65rem;">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" />
+        </div>
+
+        <!-- 10DLC / A2P SMS Consent — required, unchecked by default, near top for reviewer visibility -->
+        <div class="consent-block" style="margin-bottom:.8rem;">
+          <label>
+            <input type="checkbox" id="sms_consent" name="sms_consent" value="yes" required>
+            <span>By checking this box, you expressly consent to receive SMS messages from Promised Land Property Solutions regarding your property inquiry, including follow-ups and offers. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for help. Consent is not a condition of purchase. View our <a href="privacy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms &amp; Conditions</a>.</span>
+          </label>
+        </div>
+
+        <!-- ── Property Info ── -->
+        <p class="form-section-label">Property Info</p>
+        <div class="form-group" style="margin-bottom:.65rem;">
+          <label for="address">Property Address *</label>
+          <input type="text" id="address" name="address" placeholder="Start typing your address…" required autocomplete="off" />
+        </div>
+        <div class="form-row2" style="margin-bottom:.65rem;">
+          <div class="form-group">
+            <label for="property_type">Property Type</label>
+            <select id="property_type" name="property_type">
+              <option value="">— Select —</option>
+              <option value="single_family">Single Family Home</option>
+              <option value="duplex">Duplex</option>
+              <option value="condo">Condo/Townhome</option>
+              <option value="land">Land</option>
+              <option value="mobile">Mobile/Manufactured Home</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="occupancy_status">Who's Living There?</label>
+            <select id="occupancy_status" name="occupancy_status">
+              <option value="">— Select —</option>
+              <option value="owner_occupied">Owner occupied</option>
+              <option value="rented">Rented out</option>
+              <option value="vacant">Vacant</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:.8rem;">
+          <label for="condition">Property Condition (1–10) *</label>
+          <select id="condition" name="condition">
+            <option value="">— Select —</option>
+            <option value="1">1 — Needs complete rebuild</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 — Major repairs needed</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8 — Minor cosmetic work</option>
+            <option value="9">9</option>
+            <option value="10">10 — Move-in ready / excellent</option>
+          </select>
+        </div>
+
+        <!-- ── Your Situation ── -->
+        <p class="form-section-label">Your Situation</p>
+        <div class="form-row2" style="margin-bottom:.65rem;">
+          <div class="form-group">
+            <label for="why_sell">Why Are You Selling?</label>
+            <select id="why_sell" name="why_sell">
+              <option value="">— Select —</option>
+              <option value="foreclosure">Facing Foreclosure</option>
+              <option value="inherited">Inherited the Property</option>
+              <option value="divorce">Going Through Divorce</option>
+              <option value="repairs">Too Many Repairs Needed</option>
+              <option value="tired_landlord">Tired Landlord</option>
+              <option value="relocating">Relocating</option>
+              <option value="behind_payments">Behind on Payments</option>
+              <option value="probate">Probate / Estate Sale</option>
+              <option value="tax_lien">Tax Lien</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timeline">How Soon Do You Need to Sell?</label>
+            <select id="timeline" name="timeline">
+              <option value="">— Select —</option>
+              <option value="ASAP">ASAP</option>
+              <option value="30_days">30 Days</option>
+              <option value="60_days">60 Days</option>
+              <option value="90_days">90 Days</option>
+              <option value="6_months">6 Months</option>
+              <option value="12_months">12 Months</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row2" style="margin-bottom:.65rem;">
+          <div class="form-group">
+            <label for="repairs_needed">Repairs Needed?</label>
+            <select id="repairs_needed" name="repairs_needed">
+              <option value="">— Select —</option>
+              <option value="cosmetics">Cosmetics only</option>
+              <option value="light">Light repairs</option>
+              <option value="heavy">Heavy repairs</option>
+              <option value="complete_rehab">Complete rehab</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="lowest_amount">Lowest Price You'd Accept</label>
+            <input type="text" id="lowest_amount" name="lowest_amount" placeholder="$ optional" />
+          </div>
+        </div>
+        <div class="form-row2" style="margin-bottom:.65rem;">
+          <div class="form-group">
+            <label for="listed_with_realtor">Listed with a Realtor?</label>
+            <select id="listed_with_realtor" name="listed_with_realtor">
+              <option value="">— Select —</option>
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="behind_on_payments">Behind on Payments?</label>
+            <select id="behind_on_payments" name="behind_on_payments">
+              <option value="">— Select —</option>
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:.65rem;">
+          <label for="how_hear_about_us">How Did You Hear About Us?</label>
+          <select id="how_hear_about_us" name="how_hear_about_us">
+            <option value="">— Select —</option>
+            <option value="google">Google</option>
+            <option value="facebook">Facebook</option>
+            <option value="referral">Referral</option>
+            <option value="postcard">Postcard</option>
+            <option value="bandit_sign">Bandit Sign</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:.8rem;">
+          <label for="notes">Anything Else We Should Know? (optional)</label>
+          <textarea id="notes" name="notes" rows="2" placeholder="Tell us about the property, any liens, tenants, code violations, etc."></textarea>
+        </div>
+
+        <!-- Hidden fields for backend — city/zip filled by Places autocomplete -->
+        <input type="hidden" id="city_hidden" name="city" value="" />
+        <input type="hidden" id="zip_hidden" name="zip_code" value="" />
+        <input type="hidden" name="state" value="TX" />
+        <input type="hidden" name="source_detail" value="Homepage Hero Form" />
+
+        <button type="submit" class="btn btn-gold btn-full" id="formSubmitBtn">
+          Get My Free Cash Offer →
+        </button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        ✅ Thank you! We received your info and will contact you within 24 hours with a cash offer.
+      </div>
+      <div class="form-error" id="formError">
+        Something went wrong. Please call us directly or try again.
+      </div>
+    </div>
+
   </div>
-  <a href="#offer" class="btn btn-gold" style="font-size:1.15rem;padding:1rem 2.5rem;">Get My Cash Offer →</a>
 </section>
 
 <!-- SITUATIONS WE HELP WITH -->
@@ -163,191 +364,6 @@
   </div>
 </section>
 
-<!-- LEAD FORM -->
-<section class="section" id="offer">
-  <div class="section-inner">
-    <div class="form-wrap">
-      <h2>Get Your <em style="color:var(--gold2);font-style:normal;">Free Cash Offer</em> Today</h2>
-      <p class="sub">No obligation. No fees. We'll contact you within 24 hours with a fair offer.</p>
-
-      <form id="leadForm">
-
-        <!-- SECTION 1: Contact Info -->
-        <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold2);font-weight:700;margin-bottom:.75rem;">Your Contact Info</p>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="first_name">First Name *</label>
-            <input type="text" id="first_name" name="first_name" placeholder="John" required />
-          </div>
-          <div class="form-group">
-            <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" placeholder="Smith" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" placeholder="(214) 555-0100" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="john@example.com" />
-          </div>
-        </div>
-
-        <!-- SECTION 2: Property -->
-        <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold2);font-weight:700;margin:.75rem 0 .75rem;">Property Info</p>
-        <div class="form-row full">
-          <div class="form-group">
-            <label for="address">Property Address *</label>
-            <input type="text" id="address" name="address" placeholder="Start typing your address…" required autocomplete="off" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" id="city" name="city" placeholder="Dallas" />
-          </div>
-          <div class="form-group">
-            <label for="zip_code">Zip Code</label>
-            <input type="text" id="zip_code" name="zip_code" placeholder="75201" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="property_type">Property Type</label>
-            <select id="property_type" name="property_type">
-              <option value="">Select...</option>
-              <option value="single_family">Single Family Home</option>
-              <option value="multi_family">Multi-Family (Duplex/Triplex)</option>
-              <option value="condo">Condo / Townhome</option>
-              <option value="mobile_home">Mobile Home</option>
-              <option value="land">Vacant Land</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="occupancy_status">Who's Living There?</label>
-            <select id="occupancy_status" name="occupancy_status">
-              <option value="">Select...</option>
-              <option value="owner_occupied">I live there</option>
-              <option value="vacant">Vacant</option>
-              <option value="rented">Tenant is living there</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- SECTION 3: Situation -->
-        <p style="font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold2);font-weight:700;margin:.75rem 0 .75rem;">Your Situation</p>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="why_sell">Why Are You Selling?</label>
-            <select id="why_sell" name="why_sell">
-              <option value="">Select a reason...</option>
-              <option value="foreclosure">Facing Foreclosure</option>
-              <option value="inherited">Inherited the Property</option>
-              <option value="divorce">Going Through Divorce</option>
-              <option value="repairs">Too Many Repairs Needed</option>
-              <option value="tired_landlord">Tired Landlord</option>
-              <option value="relocating">Relocating</option>
-              <option value="behind_payments">Behind on Payments</option>
-              <option value="probate">Probate / Estate Sale</option>
-              <option value="tax_lien">Tax Lien</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="timeline">How Soon Do You Need to Sell?</label>
-            <select id="timeline" name="timeline">
-              <option value="">Select timeline...</option>
-              <option value="asap">As Soon as Possible</option>
-              <option value="30_days">Within 30 Days</option>
-              <option value="60_days">Within 60 Days</option>
-              <option value="flexible">I'm Flexible</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="condition">Property Condition</label>
-            <select id="condition" name="condition">
-              <option value="">Select...</option>
-              <option value="excellent">Excellent — Move-in ready</option>
-              <option value="good">Good — Minor cosmetic work</option>
-              <option value="fair">Fair — Needs moderate repairs</option>
-              <option value="poor">Poor — Needs major repairs</option>
-              <option value="distressed">Distressed — Significant damage</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="repairs_needed">Repairs Needed?</label>
-            <select id="repairs_needed" name="repairs_needed">
-              <option value="">Select...</option>
-              <option value="none">No repairs needed</option>
-              <option value="cosmetic">Cosmetic only (paint, carpet)</option>
-              <option value="moderate">Moderate (kitchen, bath updates)</option>
-              <option value="major">Major (roof, foundation, HVAC)</option>
-              <option value="full_rehab">Full rehab needed</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="behind_on_payments">Behind on Mortgage Payments?</label>
-            <select id="behind_on_payments" name="behind_on_payments">
-              <option value="">Select...</option>
-              <option value="no">No, payments are current</option>
-              <option value="yes">Yes, I'm behind</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="listed_with_realtor">Currently Listed with a Realtor?</label>
-            <select id="listed_with_realtor" name="listed_with_realtor">
-              <option value="">Select...</option>
-              <option value="no">No</option>
-              <option value="yes">Yes</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-row full">
-          <div class="form-group">
-            <label for="lowest_amount">What's the Lowest You'd Accept? (optional)</label>
-            <input type="text" id="lowest_amount" name="lowest_amount" placeholder="$ Your minimum price" />
-          </div>
-        </div>
-        <div class="form-row full">
-          <div class="form-group">
-            <label for="notes">Anything Else We Should Know? (optional)</label>
-            <textarea id="notes" name="notes" placeholder="Tell us about the property, any liens, tenants, code violations, etc."></textarea>
-          </div>
-        </div>
-
-        <div style="margin-bottom:.9rem;padding:.65rem .75rem;background:rgba(0,0,0,.06);border-radius:6px;border:1px solid rgba(0,0,0,.08);">
-          <label style="display:flex;align-items:flex-start;gap:.6rem;cursor:pointer;margin:0;">
-            <input type="checkbox" name="sms_consent" value="yes" required
-                   style="margin-top:.25rem;flex-shrink:0;width:1.1rem;height:1.1rem;accent-color:#c8930a;">
-            <span style="font-size:.8rem;line-height:1.5;color:#555;">
-              By checking this box, you agree to receive text messages from Promised Land Property Solutions.
-              Reply STOP to opt out. Reply HELP for help. Message frequency varies. Message and data rates may apply.
-              <a href="https://www.promisedlandpropertysolutions.com/privacy" target="_blank" style="color:#333;text-decoration:underline;">Privacy Policy</a>
-              &amp; <a href="https://www.promisedlandpropertysolutions.com/terms" target="_blank" style="color:#333;text-decoration:underline;">Terms &amp; Conditions</a>.
-            </span>
-          </label>
-        </div>
-        <button type="submit" class="btn btn-gold btn-full" id="formSubmitBtn">
-          Get My Free Cash Offer →
-        </button>
-      </form>
-
-      <div class="form-success" id="formSuccess">
-        ✅ Thank you! We received your info and will contact you within 24 hours with a cash offer.
-      </div>
-      <div class="form-error" id="formError">
-        Something went wrong. Please call us directly or try again.
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FAQ -->
 <section class="section section-alt">
@@ -447,12 +463,12 @@ function initAutocomplete() {
     var streetNum = get("street_number");
     var route = get("route");
     input.value = streetNum ? streetNum + " " + route : route;
-    var cityField = document.getElementById("city");
-    var zipField  = document.getElementById("zip_code");
-    if (cityField) cityField.value = get("locality") || get("sublocality") || get("neighborhood");
-    if (zipField)  zipField.value  = get("postal_code");
-    // store state for submission
+    // store state and populate hidden city/zip fields
     input.dataset.state = getShort("administrative_area_level_1");
+    var cityHidden = document.getElementById("city_hidden");
+    var zipHidden  = document.getElementById("zip_hidden");
+    if (cityHidden) cityHidden.value = get("locality") || get("sublocality") || get("neighborhood");
+    if (zipHidden)  zipHidden.value  = get("postal_code");
   });
 }
 
@@ -461,6 +477,15 @@ const BACKEND = "https://dealbot2-0.onrender.com/api/web-leads/submit";
 
 document.getElementById("leadForm").addEventListener("submit", async function (e) {
   e.preventDefault();
+
+  // Explicit SMS consent validation (belt-and-suspenders on top of HTML required)
+  const consentBox = document.getElementById("sms_consent");
+  if (!consentBox.checked) {
+    consentBox.closest(".consent-block").style.border = "2px solid #f87171";
+    consentBox.focus();
+    return;
+  }
+
   const btn = document.getElementById("formSubmitBtn");
   btn.disabled = true;
   btn.textContent = "Sending…";

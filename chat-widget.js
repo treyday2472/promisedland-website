@@ -15,6 +15,8 @@
     visitorPhone: null,
     visitorEmail: null,
     contactId: null,
+    leadId: null,
+    leadCreated: false,
     history: [],          // [{role, content}]
     askedName: false,
     askedPhone: false,
@@ -233,6 +235,26 @@
     badge.style.display = "flex";
   }
 
+  function showLeadCreatedBanner() {
+    // Insert a distinct "lead saved" message in the chat
+    var div = document.createElement("div");
+    div.style.cssText = [
+      "background:rgba(34,197,94,.15)",
+      "border:1px solid rgba(34,197,94,.35)",
+      "border-radius:10px",
+      "padding:10px 13px",
+      "font-size:.82rem",
+      "color:#4ade80",
+      "font-weight:600",
+      "align-self:stretch",
+      "text-align:center",
+      "margin-top:4px",
+    ].join(";");
+    div.textContent = "✅ Your inquiry has been saved! We'll text you within 24 hours.";
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
   // ---------- Open / close ----------
   btn.addEventListener("click", function () {
     state.open = !state.open;
@@ -304,6 +326,13 @@
         state.history.push({ role: "assistant", content: reply });
         state.sessionState = json.session_state || "chatting";
         if (json.contact_id) state.contactId = json.contact_id;
+
+        // Lead successfully created via chatbot function call
+        if (json.lead_created && json.lead_id && !state.leadCreated) {
+          state.leadCreated = true;
+          state.leadId = json.lead_id;
+          showLeadCreatedBanner();
+        }
 
         // Extract phone/email from user messages heuristically
         extractContactInfo(text);
