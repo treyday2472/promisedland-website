@@ -549,10 +549,24 @@
     countEl.textContent = rows.length + ' record' + (rows.length !== 1 ? 's' : '');
   }
 
+  // Secondary safeguard: filter out records with stale or missing sale dates.
+  // The primary fix is in the backend exporter, but this prevents any legacy
+  // bad records that survived in the JSON from appearing publicly.
+  var _30_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+  function isSaleDateCurrent(saleDate) {
+    if (!saleDate) return false;
+    var d = new Date(saleDate);
+    if (isNaN(d.getTime())) return false;
+    if (d.getFullYear() < 2020) return false;  // old deed/instrument date
+    var now = new Date();
+    return (now - d) <= _30_DAYS_MS;           // not more than 30 days past
+  }
+
   function applySearch(q) {
-    if (!q) { renderRows(allRows); return; }
+    var current = allRows.filter(function(r) { return isSaleDateCurrent(r.sale_date); });
+    if (!q) { renderRows(current); return; }
     var lq = q.toLowerCase();
-    renderRows(allRows.filter(function (r) {
+    renderRows(current.filter(function (r) {
       return (
         (r.address  || '').toLowerCase().includes(lq) ||
         (r.owner    || '').toLowerCase().includes(lq) ||
@@ -614,9 +628,11 @@
     })
     .then(function (data) {
       loadMsg.style.display = 'none';
-      allRows = data.records || [];
+      // Store all records; frontend safeguard filters stale dates at render time.
+      allRows = (data.records || []).filter(function(r) { return isSaleDateCurrent(r.sale_date); });
+      var totalRaw = (data.records || []).length;
 
-      metaCount.innerHTML   = '<strong>' + data.total + '</strong> active notices';
+      metaCount.innerHTML   = '<strong>' + allRows.length + '</strong> active notices';
       if (data.exported_at) {
         var d = new Date(data.exported_at);
         metaUpdated.textContent = 'Updated ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
