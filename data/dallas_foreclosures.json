@@ -1,10 +1,65 @@
 {
-  "exported_at": "2026-03-20T00:48:50.791738+00:00",
+  "exported_at": "2026-04-09T02:24:40.711929+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
-  "total": 49,
+  "total": 54,
   "records": [
+    {
+      "id": 1211,
+      "address": "1320 Blair Dr. Mesquite, TX 75150",
+      "city": "",
+      "zip": "",
+      "owner": "Gerardo Hernandez and Karla C. Hernandez",
+      "sale_date": "2026-05-05",
+      "filing_date": null,
+      "case_number": "200900219022",
+      "score": 40
+    },
+    {
+      "id": 1210,
+      "address": "1908 DRAKE STREET, Glenn Heights, TX 75154",
+      "city": "Glenn Heights",
+      "zip": "75154",
+      "owner": "RICO BURRIS",
+      "sale_date": "2026-05-05",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1207,
+      "address": "116 SOUTH RAVINIA DRIVE, DALLAS, TX 75211",
+      "city": "Dallas",
+      "zip": "75211",
+      "owner": "LORRENA F. HUITT",
+      "sale_date": "2026-05-05",
+      "filing_date": null,
+      "case_number": "201200372826",
+      "score": 40
+    },
+    {
+      "id": 1205,
+      "address": "1655 MCADAMS A VE DALLAS, TX 75224",
+      "city": "",
+      "zip": "",
+      "owner": "DOUGLAS COOPER WILSON AND HAYLEY SHIPLEY",
+      "sale_date": "2026-05-05",
+      "filing_date": null,
+      "case_number": "202300011665",
+      "score": 40
+    },
+    {
+      "id": 1204,
+      "address": "3723 BARNABUS ROAD DALLAS, TX 75241",
+      "city": "",
+      "zip": "",
+      "owner": "Roy Mcdowell, Betty Joyce Mcdowell",
+      "sale_date": "2026-05-05",
+      "filing_date": null,
+      "case_number": "200600173462",
+      "score": 40
+    },
     {
       "id": 1203,
       "address": "1214 CHASE LN SEAGOVILLE, TX 75159",
