@@ -111,6 +111,15 @@
     }
     table.rec-table td.addr { color: var(--white); font-weight: 500; }
     table.rec-table td.date { white-space: nowrap; }
+    table.rec-table tbody tr.month-sep td {
+      background: #1a2332;
+      color: #c8d6e5;
+      font-weight: 600;
+      font-size: .8rem;
+      padding: .35rem .75rem;
+      border-top: 2px solid #2c3e55;
+      pointer-events: none;
+    }
     .score-pill {
       display: inline-block;
       padding: .15rem .55rem;
@@ -480,6 +489,18 @@
     return parts[1] + '/' + parts[2] + '/' + parts[0].slice(2);
   }
 
+  var MONTHS = ['January','February','March','April','May','June','July',
+                'August','September','October','November','December'];
+
+  function saleMonthLabel(saleDate) {
+    if (!saleDate) return null;
+    var ym = saleDate.slice(0, 7).split('-');
+    if (ym.length < 2) return null;
+    var m = parseInt(ym[1], 10) - 1;
+    if (m < 0 || m > 11) return null;
+    return MONTHS[m] + ' ' + ym[0];
+  }
+
   function buildRow(r) {
     var addr  = toTitleCase(r.address) || '—';
     var owner = toTitleCase(r.owner)   || '—';
@@ -501,7 +522,30 @@
     }
     noRes.style.display = 'none';
     tableWrap.style.display = 'block';
-    tbody.innerHTML = rows.map(buildRow).join('');
+
+    // Sort by sale_date ascending (earliest first within each group is natural;
+    // group headers appear in chronological order)
+    var sorted = rows.slice().sort(function(a, b) {
+      var da = a.sale_date || '';
+      var db = b.sale_date || '';
+      if (da < db) return -1;
+      if (da > db) return 1;
+      return 0;
+    });
+
+    var html = '';
+    var lastGroup = null;
+    sorted.forEach(function(r) {
+      var group = saleMonthLabel(r.sale_date);
+      if (group !== lastGroup) {
+        var label = group ? ('📅 ' + group) : '📅 Undated';
+        html += '<tr class="month-sep"><td colspan="4">' + label + '</td></tr>';
+        lastGroup = group;
+      }
+      html += buildRow(r);
+    });
+
+    tbody.innerHTML = html;
     countEl.textContent = rows.length + ' record' + (rows.length !== 1 ? 's' : '');
   }
 
