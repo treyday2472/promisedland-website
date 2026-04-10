@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-04-10T04:44:43.365508+00:00",
+  "exported_at": "2026-04-10T05:22:05.166860+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
-  "total": 46,
+  "total": 44,
   "records": [
     {
       "id": 1211,
@@ -488,28 +488,6 @@
       "filing_date": null,
       "case_number": "202100203942",
       "score": 40
-    },
-    {
-      "id": 1160,
-      "address": "2538 Camel Court Dallas, Texas 75241",
-      "city": "",
-      "zip": "",
-      "owner": "BRIAN BROOKS",
-      "sale_date": "2026-04-07",
-      "filing_date": "2026-02-19",
-      "case_number": "201400329112",
-      "score": 50
-    },
-    {
-      "id": 1168,
-      "address": "1606 CARROLL DRIVE, Garland, TX 75041",
-      "city": "Garland",
-      "zip": "75041",
-      "owner": "REBECCA H PASCHALL",
-      "sale_date": "2026-04-07",
-      "filing_date": "2026-01-19",
-      "case_number": "201200224084",
-      "score": 50
     }
   ]
 }
