@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-04-10T01:36:26.615483+00:00",
+  "exported_at": "2026-04-10T04:44:25.552968+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
-  "total": 41,
+  "total": 46,
   "records": [
     {
       "id": 1211,
@@ -47,6 +47,17 @@
       "sale_date": "2026-05-05",
       "filing_date": null,
       "case_number": "201200372826",
+      "score": 40
+    },
+    {
+      "id": 1206,
+      "address": "116 S Ravinia Dr",
+      "city": "Dallas",
+      "zip": "75211",
+      "owner": "Jessica Ortiz And Marcus Paul Robinson",
+      "sale_date": "2026-05-05",
+      "filing_date": null,
+      "case_number": "201300341503",
       "score": 40
     },
     {
@@ -435,6 +446,17 @@
       "score": 40
     },
     {
+      "id": 813,
+      "address": "8401 Sailors St",
+      "city": "Rowlett",
+      "zip": "75089",
+      "owner": "MATTHEW STEBLETON",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "202100014794",
+      "score": 40
+    },
+    {
       "id": 800,
       "address": "2808 Turtle Dove Lane, Mesquite, Tx 75181",
       "city": "Mesquite",
@@ -443,6 +465,17 @@
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "202500069259",
+      "score": 40
+    },
+    {
+      "id": 793,
+      "address": "1969 NEWPORT DR",
+      "city": "",
+      "zip": "",
+      "owner": "Kent Wilson",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "201800164053",
       "score": 40
     },
     {
@@ -455,6 +488,28 @@
       "filing_date": null,
       "case_number": "202100203942",
       "score": 40
+    },
+    {
+      "id": 1160,
+      "address": "2538 Camel Court Dallas, Texas 75241",
+      "city": "",
+      "zip": "",
+      "owner": "BRIAN BROOKS",
+      "sale_date": "2026-04-07",
+      "filing_date": "2026-02-19",
+      "case_number": "201400329112",
+      "score": 50
+    },
+    {
+      "id": 1168,
+      "address": "1606 CARROLL DRIVE, Garland, TX 75041",
+      "city": "Garland",
+      "zip": "75041",
+      "owner": "REBECCA H PASCHALL",
+      "sale_date": "2026-04-07",
+      "filing_date": "2026-01-19",
+      "case_number": "201200224084",
+      "score": 50
     }
   ]
 }
