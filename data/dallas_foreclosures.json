@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-04-09T02:24:48.562817+00:00",
+  "exported_at": "2026-04-10T01:36:18.796819+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
-  "total": 54,
+  "total": 43,
   "records": [
     {
       "id": 1211,
@@ -22,6 +22,17 @@
       "city": "Glenn Heights",
       "zip": "75154",
       "owner": "RICO BURRIS",
+      "sale_date": "2026-05-05",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1208,
+      "address": "4035 MENDENHALL DRIVE, DALLAS, TX 75244",
+      "city": "Dallas",
+      "zip": "75244",
+      "owner": "Lorrena F Huitt",
       "sale_date": "2026-05-05",
       "filing_date": null,
       "case_number": "",
@@ -127,17 +138,6 @@
       "score": 40
     },
     {
-      "id": 1197,
-      "address": "2113 HICKORY RIDGEDR, MESQUITE, TX 75181",
-      "city": "Mesquite",
-      "zip": "75181",
-      "owner": "A. D. JONES JR. AND ANDRENAJONES",
-      "sale_date": "2002-04-09",
-      "filing_date": null,
-      "case_number": "25-383656",
-      "score": 40
-    },
-    {
       "id": 1196,
       "address": "1923 SPICEBERRYLANE, MESQUITE, TX 75149",
       "city": "Mesquite",
@@ -171,39 +171,6 @@
       "score": 40
     },
     {
-      "id": 1191,
-      "address": "2605 CAMERON WAY, Mesquite, TX 75181",
-      "city": "Mesquite",
-      "zip": "75181",
-      "owner": "MOLAVE HIJADA AND REBECCA HIJADA",
-      "sale_date": "2026-01-15",
-      "filing_date": null,
-      "case_number": "",
-      "score": 40
-    },
-    {
-      "id": 1190,
-      "address": "2808 TURTLE DOVE LANE, Mesquite, TX 75181",
-      "city": "Mesquite",
-      "zip": "75181",
-      "owner": "Belinda K Soules",
-      "sale_date": "2029-04-07",
-      "filing_date": null,
-      "case_number": "200900218890",
-      "score": 40
-    },
-    {
-      "id": 1188,
-      "address": "603 ZOLLMAN CT, LANCASTER, TX 75146",
-      "city": "Lancaster",
-      "zip": "75146",
-      "owner": "LATOYAD. JARVIS",
-      "sale_date": "2016-10-31",
-      "filing_date": null,
-      "case_number": "201600311555",
-      "score": 40
-    },
-    {
       "id": 1187,
       "address": "213 BARRY LANE, Lancaster, TX 75146",
       "city": "Lancaster",
@@ -234,28 +201,6 @@
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "201600278981",
-      "score": 40
-    },
-    {
-      "id": 1184,
-      "address": "1307 PRAIRIE DRIVE, Lancaster, TX 75146",
-      "city": "Lancaster",
-      "zip": "75146",
-      "owner": "RAYMOND PETRY",
-      "sale_date": "2026-02-09",
-      "filing_date": null,
-      "case_number": "",
-      "score": 40
-    },
-    {
-      "id": 1183,
-      "address": "1068 Bumble Bee Drive, Lancaster, TX 75134",
-      "city": "Lancaster",
-      "zip": "75134",
-      "owner": "Yvonne Arthur",
-      "sale_date": "2026-02-11",
-      "filing_date": null,
-      "case_number": "201700121346",
       "score": 40
     },
     {
@@ -303,17 +248,6 @@
       "score": 40
     },
     {
-      "id": 1176,
-      "address": "1387 MINNOW RD, COPPELL, TX 75019",
-      "city": "Coppell",
-      "zip": "75019",
-      "owner": "ABBILASH NALLURI AND SWATHI VELUVALLI.",
-      "sale_date": "2026-01-28",
-      "filing_date": null,
-      "case_number": "26-000065",
-      "score": 40
-    },
-    {
       "id": 1175,
       "address": "2228 OAKDALE ROAD, Irving, TX 75060",
       "city": "Irving",
@@ -322,17 +256,6 @@
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "201700118387",
-      "score": 40
-    },
-    {
-      "id": 1174,
-      "address": "2524 ROGER WILLIAMS DRIVE, Irving, TX 75061",
-      "city": "Irving",
-      "zip": "75061",
-      "owner": "HEBERT HERNANDEZ AND WIFE VILMA JIMENEZ",
-      "sale_date": "2026-01-22",
-      "filing_date": null,
-      "case_number": "200900344318",
       "score": 40
     },
     {
@@ -402,17 +325,6 @@
       "score": 40
     },
     {
-      "id": 1162,
-      "address": "516 MIDWAY DR DESOTO, TX 75115",
-      "city": "",
-      "zip": "",
-      "owner": "Oliver Mock AND Doris Mock",
-      "sale_date": "2022-07-07",
-      "filing_date": null,
-      "case_number": "",
-      "score": 40
-    },
-    {
       "id": 1159,
       "address": "2612 South Boulevard, Dallas, Tx 75215",
       "city": "Dallas",
@@ -421,17 +333,6 @@
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "20070394439",
-      "score": 40
-    },
-    {
-      "id": 1158,
-      "address": "4827-4829 TREMONT ST, DALLAS, TX 75246",
-      "city": "Dallas",
-      "zip": "75246",
-      "owner": "TWYLA G. POWER",
-      "sale_date": "2007-01-29",
-      "filing_date": null,
-      "case_number": "20070041842",
       "score": 40
     },
     {
@@ -512,17 +413,6 @@
       "score": 40
     },
     {
-      "id": 821,
-      "address": "516 MIDWAY DR DESOTO, TX 75115",
-      "city": "",
-      "zip": "",
-      "owner": "Oliver Mock AND Doris Mock",
-      "sale_date": "2022-07-07",
-      "filing_date": null,
-      "case_number": "",
-      "score": 40
-    },
-    {
       "id": 819,
       "address": "2000 FLORA LANE, DESOTO, TX 75115",
       "city": "Desoto",
@@ -575,17 +465,6 @@
       "sale_date": "2026-04-07",
       "filing_date": "2026-02-19",
       "case_number": "201400329112",
-      "score": 50
-    },
-    {
-      "id": 1169,
-      "address": "710 INTREPID DRIVE, Garland, TX 75043",
-      "city": "Garland",
-      "zip": "75043",
-      "owner": "Pattie Estate of O'Donnell",
-      "sale_date": "2026-04-07",
-      "filing_date": "2026-02-12",
-      "case_number": "",
       "score": 50
     },
     {
