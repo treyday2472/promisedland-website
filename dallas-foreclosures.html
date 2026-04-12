@@ -576,8 +576,10 @@
     }));
   }
 
-  // Slug map: normalized city key → URL slug (must match created HTML files)
+  // Slug map: normalized city key → URL slug (must match created HTML files).
+  // 'dallas' maps to 'dallas' — this IS the dallas-foreclosures page so it renders as active chip.
   var CITY_SLUGS = {
+    'dallas':       'dallas',
     'desoto':       'desoto',
     'garland':      'garland',
     'cedarhill':    'cedar-hill',
@@ -589,10 +591,12 @@
   };
   // Friendly display names keyed by normalized name
   var CITY_LABELS = {
-    'desoto': 'DeSoto', 'garland': 'Garland', 'cedarhill': 'Cedar Hill',
+    'dallas': 'Dallas', 'desoto': 'DeSoto', 'garland': 'Garland', 'cedarhill': 'Cedar Hill',
     'duncanville': 'Duncanville', 'balchsprings': 'Balch Springs',
     'glennheights': 'Glenn Heights', 'lancaster': 'Lancaster', 'mesquite': 'Mesquite'
   };
+  // Current page slug — used to render the matching chip as active (non-linked).
+  var CURRENT_CITY_SLUG = 'dallas';
 
   function normCity(c) { return (c || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
 
@@ -605,16 +609,34 @@
     var linksEl = document.getElementById('city-links');
     var section = document.getElementById('city-nav-section');
     if (!linksEl || !section) return;
+
+    // Build ordered list: dallas first, then remaining cities alphabetically.
+    var keys = Object.keys(counts).filter(function (k) { return CITY_SLUGS[k]; });
+    keys.sort(function (a, b) {
+      if (a === CURRENT_CITY_SLUG) return -1;
+      if (b === CURRENT_CITY_SLUG) return 1;
+      return a < b ? -1 : 1;
+    });
+
     var html = '';
-    Object.keys(counts).sort().forEach(function (k) {
+    keys.forEach(function (k) {
       var slug  = CITY_SLUGS[k];
       var label = CITY_LABELS[k] || k;
-      if (!slug) return; // no page yet for this city
-      html += '<a href="/' + slug + '-foreclosures" style="' +
-        'display:inline-block;padding:.35rem .85rem;border-radius:20px;' +
-        'background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);' +
-        'color:var(--gold2);font-size:.83rem;text-decoration:none;">' +
-        label + ' <span style="opacity:.6;font-size:.75rem;">(' + counts[k] + ')</span></a>';
+      var count = counts[k];
+      if (slug === CURRENT_CITY_SLUG) {
+        // Active chip — current page, no link
+        html += '<span style="' +
+          'display:inline-block;padding:.35rem .85rem;border-radius:20px;' +
+          'background:var(--gold2);border:1px solid var(--gold2);' +
+          'color:#1a1a1a;font-size:.83rem;font-weight:600;">' +
+          label + ' <span style="opacity:.7;font-size:.75rem;">(' + count + ')</span></span>';
+      } else {
+        html += '<a href="/' + slug + '-foreclosures" style="' +
+          'display:inline-block;padding:.35rem .85rem;border-radius:20px;' +
+          'background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);' +
+          'color:var(--gold2);font-size:.83rem;text-decoration:none;">' +
+          label + ' <span style="opacity:.6;font-size:.75rem;">(' + count + ')</span></a>';
+      }
     });
     if (html) { linksEl.innerHTML = html; section.style.display = 'block'; }
   }
