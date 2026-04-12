@@ -441,6 +441,49 @@ footer ul a:hover { color: var(--white); }
 }
 .consent-block a { color: var(--gold2); text-decoration: underline; }
 
+/* ---- VIDEO EMBEDS ---- */
+/* 16:9 responsive container — wrap any iframe in .video-embed */
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: #000;
+}
+.video-embed iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+/* Grid for 2-up video layout */
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+}
+.video-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold2);
+}
+.video-card-body {
+  font-size: .9rem;
+  color: rgba(245,247,250,.75);
+  line-height: 1.55;
+}
+@media (max-width: 768px) {
+  .video-grid { grid-template-columns: 1fr; }
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   .nav-links { display: none; }
