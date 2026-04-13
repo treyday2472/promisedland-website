@@ -476,10 +476,10 @@ footer ul a:hover { color: var(--white); }
   height: 100%;
   border: 0;
 }
-/* Grid for 2-up video layout */
+/* Grid for 2- or 3-up video layout */
 .video-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
