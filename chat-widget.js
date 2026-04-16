@@ -6,6 +6,7 @@
   "use strict";
 
   var BACKEND = "https://dealbot2-0.onrender.com/api/chat";
+  var GOOGLE_PLACES_KEY = "YOUR_GOOGLE_MAPS_API_KEY"; // ← replace with your key
 
   // ---------- State ----------
   var state = {
@@ -20,6 +21,7 @@
     history: [],          // [{role, content}]
     askedName: false,
     askedPhone: false,
+    askedAddress: false,
     intakeSlots: {},      // canonical field values collected so far — synced with backend
   };
 
@@ -161,6 +163,39 @@
     #plps-chat-send:hover { background: #e5b040; }
     #plps-chat-send:disabled { background: rgba(201,153,42,.4); cursor: default; }
     #plps-chat-send svg { width: 16px; height: 16px; fill: #0f1f3d; }
+
+    #plps-address-input {
+      flex: 1; background: rgba(255,255,255,.07);
+      border: 1px solid #c9992a;
+      border-radius: 10px; color: #f5f7fa;
+      padding: 9px 12px; font-size: .9rem;
+      outline: none; font-family: inherit; line-height: 1.4;
+      display: none;
+    }
+    #plps-address-input:focus { border-color: #e5b040; }
+    #plps-address-input::placeholder { color: rgba(245,247,250,.45); }
+
+    /* Style the Google autocomplete dropdown to match the dark theme */
+    .pac-container {
+      background: #162444 !important;
+      border: 1px solid rgba(201,153,42,.4) !important;
+      border-radius: 10px !important;
+      box-shadow: 0 6px 24px rgba(0,0,0,.5) !important;
+      font-family: inherit !important;
+      z-index: 99999 !important;
+    }
+    .pac-item {
+      color: #f5f7fa !important;
+      border-top: 1px solid rgba(255,255,255,.08) !important;
+      padding: 8px 12px !important;
+      font-size: .88rem !important;
+      cursor: pointer !important;
+    }
+    .pac-item:first-child { border-top: none !important; }
+    .pac-item:hover, .pac-item-selected { background: rgba(201,153,42,.2) !important; }
+    .pac-item-query { color: #c9992a !important; font-weight: 600 !important; }
+    .pac-matched { color: #e5b040 !important; }
+    .pac-icon { display: none !important; }
   `;
 
   // ---------- Inject ----------
@@ -195,6 +230,7 @@
     <div id="plps-chat-messages"></div>
     <div id="plps-chat-footer">
       <textarea id="plps-chat-input" rows="1" placeholder="Type a message…"></textarea>
+      <input id="plps-address-input" type="text" placeholder="Start typing your address…" autocomplete="off">
       <button id="plps-chat-send" aria-label="Send">
         <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
       </button>
@@ -203,10 +239,71 @@
   document.body.appendChild(win);
 
   // ---------- DOM refs ----------
-  var messages = document.getElementById("plps-chat-messages");
-  var input    = document.getElementById("plps-chat-input");
-  var sendBtn  = document.getElementById("plps-chat-send");
-  var badge    = document.getElementById("plps-chat-badge");
+  var messages    = document.getElementById("plps-chat-messages");
+  var input       = document.getElementById("plps-chat-input");
+  var addrInput   = document.getElementById("plps-address-input");
+  var sendBtn     = document.getElementById("plps-chat-send");
+  var badge       = document.getElementById("plps-chat-badge");
+
+  // ---------- Google Places Autocomplete ----------
+  var placesLoaded = false;
+  var autocomplete = null;
+
+  function loadPlaces() {
+    if (placesLoaded || !GOOGLE_PLACES_KEY || GOOGLE_PLACES_KEY === "YOUR_GOOGLE_MAPS_API_KEY") return;
+    placesLoaded = true;
+    var callbackName = "__plpsPlacesReady";
+    window[callbackName] = function () {
+      initAutocomplete();
+    };
+    var s = document.createElement("script");
+    s.src = "https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_PLACES_KEY + "&libraries=places&callback=" + callbackName;
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+
+  function initAutocomplete() {
+    if (!window.google || !window.google.maps || !window.google.maps.places) return;
+    autocomplete = new google.maps.places.Autocomplete(addrInput, {
+      types: ["address"],
+      componentRestrictions: { country: "us" },
+      fields: ["formatted_address", "address_components"],
+    });
+    autocomplete.addListener("place_changed", function () {
+      var place = autocomplete.getPlace();
+      if (place && place.formatted_address) {
+        addrInput.value = place.formatted_address;
+        // Auto-send the selected address
+        sendMessage();
+      }
+    });
+  }
+
+  function showAddressInput() {
+    input.style.display = "none";
+    addrInput.style.display = "block";
+    addrInput.value = "";
+    setTimeout(function () { addrInput.focus(); }, 100);
+    loadPlaces();
+    // If Places already loaded but autocomplete not yet attached
+    if (!autocomplete && window.google && window.google.maps && window.google.maps.places) {
+      initAutocomplete();
+    }
+  }
+
+  function showTextInput() {
+    addrInput.style.display = "none";
+    input.style.display = "block";
+  }
+
+  // Detect whether a bot message is asking for a property address
+  function isAskingForAddress(text) {
+    var lower = text.toLowerCase();
+    return (lower.includes("address") && (
+      lower.includes("property") || lower.includes("sell") || lower.includes("home") || lower.includes("house")
+    ));
+  }
 
   // ---------- Helpers ----------
   function addMsg(role, text) {
@@ -215,6 +312,17 @@
     div.textContent = text;
     messages.appendChild(div);
     messages.scrollTop = messages.scrollHeight;
+
+    // Switch to address autocomplete when bot asks for property address
+    if (role === "bot" && isAskingForAddress(text)) {
+      state.askedAddress = true;
+      showAddressInput();
+    } else if (role === "bot" && state.askedAddress) {
+      // Bot moved on — restore normal input
+      state.askedAddress = false;
+      showTextInput();
+    }
+
     return div;
   }
 
@@ -287,12 +395,18 @@
 
   // ---------- Send ----------
   async function sendMessage() {
-    var text = input.value.trim();
+    var text = state.askedAddress
+      ? addrInput.value.trim()
+      : input.value.trim();
     if (!text) return;
 
     addMsg("user", text);
-    input.value = "";
-    input.style.height = "auto";
+    if (state.askedAddress) {
+      addrInput.value = "";
+    } else {
+      input.value = "";
+      input.style.height = "auto";
+    }
     sendBtn.disabled = true;
     state.history.push({ role: "user", content: text });
 
@@ -303,10 +417,17 @@
 
     showTyping();
 
+    // Abort controller — clears the spinner if backend doesn't respond within 35 seconds.
+    // Root cause of "spinner that never stops": Render free-tier cold starts can take 30+ seconds.
+    // Without a timeout the fetch hangs indefinitely, hideTyping() is never called.
+    var controller = new AbortController();
+    var timeoutId  = setTimeout(function () { controller.abort(); }, 35000);
+
     try {
       var res = await fetch(BACKEND, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
         body: JSON.stringify({
           message: text,
           history: state.history.slice(0, -1), // exclude the one we just added
@@ -319,6 +440,7 @@
         }),
       });
 
+      clearTimeout(timeoutId);
       var json = await res.json();
       hideTyping();
 
@@ -343,12 +465,21 @@
         addMsg("bot", "Sorry, I hit a snag. Try refreshing or fill out the form above!");
       }
     } catch (err) {
+      clearTimeout(timeoutId);
       hideTyping();
-      addMsg("bot", "I'm having connection issues. You can fill out the offer form on this page instead — we'll get back to you within 24 hours!");
+      if (err.name === "AbortError") {
+        addMsg("bot", "Sorry, that took too long — our assistant may be waking up. Please send your message again in a few seconds!");
+      } else {
+        addMsg("bot", "I'm having connection issues. You can fill out the offer form on this page instead — we'll get back to you within 24 hours!");
+      }
     }
 
     sendBtn.disabled = false;
-    input.focus();
+    if (state.askedAddress) {
+      addrInput.focus();
+    } else {
+      input.focus();
+    }
   }
 
   function extractContactInfo(text) {
@@ -371,6 +502,16 @@
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
+    }
+  });
+
+  addrInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      // Only send on Enter if no autocomplete dropdown is visible
+      var pac = document.querySelector(".pac-container");
+      var dropdownVisible = pac && pac.style.display !== "none" && pac.children.length > 0;
+      if (!dropdownVisible) sendMessage();
     }
   });
 
