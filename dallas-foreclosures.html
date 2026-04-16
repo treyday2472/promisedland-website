@@ -718,14 +718,17 @@
   // Secondary safeguard: filter out records with stale or missing sale dates.
   // The primary fix is in the backend exporter, but this prevents any legacy
   // bad records that survived in the JSON from appearing publicly.
-  var _30_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+  // Window: 90 days past (matches backend MAX_DAYS_PAST), 60 days future
+  // (matches backend MAX_DAYS_FUTURE). Consistent with sale_date_utils.py.
+  var _90_DAYS_MS = 90 * 24 * 60 * 60 * 1000;
+  var _60_DAYS_MS = 60 * 24 * 60 * 60 * 1000;
   function isSaleDateCurrent(saleDate) {
     if (!saleDate) return false;
     var d = new Date(saleDate);
     if (isNaN(d.getTime())) return false;
     if (d.getFullYear() < 2020) return false;  // old deed/instrument date
     var now = new Date();
-    return (now - d) <= _30_DAYS_MS;           // not more than 30 days past
+    return (now - d) <= _90_DAYS_MS && (d - now) <= _60_DAYS_MS;
   }
 
   function applySearch(q) {
