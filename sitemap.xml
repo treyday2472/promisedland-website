@@ -86,45 +86,51 @@
   </url>
 
   <url>
-    <loc>https://www.promisedlandpropertysolutions.com/garland-foreclosures</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.promisedlandpropertysolutions.com/duncanville-foreclosures</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://www.promisedlandpropertysolutions.com/lancaster-foreclosures</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
+    <loc>https://www.promisedlandpropertysolutions.com/dallas-county-foreclosures-by-city</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.promisedlandpropertysolutions.com/garland-foreclosures</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.promisedlandpropertysolutions.com/duncanville-foreclosures</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://www.promisedlandpropertysolutions.com/mesquite-foreclosures</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://www.promisedlandpropertysolutions.com/glenn-heights-foreclosures</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://www.promisedlandpropertysolutions.com/cedar-hill-foreclosures</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://www.promisedlandpropertysolutions.com/balch-springs-foreclosures</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 
   <url>
