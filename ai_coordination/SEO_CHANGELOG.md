@@ -5,6 +5,33 @@
 
 ---
 
+### Session 173 (2026-04-16) — sale_date Validation Enforcement (SEO Trust Fix)
+
+**Problem:**
+Irving and Grand Prairie pages had no date filtering — they showed all city-matching records regardless of how old the sale_date was. Dallas hub page used a 30-day window but the backend now enforces 90 days. Inconsistent thresholds meant the frontend could show records the backend had already deemed stale.
+
+**Changes (frontend JS only — no HTML structure changed):**
+
+**`dallas-foreclosures.html`**
+- `isSaleDateCurrent()` window updated: 30-day past → 90-day past / 60-day future
+- Now consistent with backend `MAX_DAYS_PAST` / `MAX_DAYS_FUTURE` constants
+
+**`irving-foreclosures.html`**
+- Added `isSaleDateCurrent()` function (was missing entirely)
+- Row filter updated: `normCity === CITY_KEY` → `normCity === CITY_KEY && isSaleDateCurrent(sale_date)`
+
+**`grand-prairie-foreclosures.html`**
+- Added `isSaleDateCurrent()` function (was missing entirely)
+- Row filter updated: same as Irving
+
+**Why this matters for SEO:**
+Google evaluates content freshness. A foreclosure listing page showing sales from 6 months ago signals stale, low-quality content. The 90-day window keeps the pages showing only recent and actionable data, which improves both user trust and crawl signals.
+
+**Backend changes (dealbot2_0):**
+Matching enforcement was also added to the Flask backend — see `CHANGELOG_FOR_CHATGPT.md` Session 173. The frontend is the last line of defense; the primary enforcement is in `sale_date_utils.py` and the SEO exporter.
+
+---
+
 ### Session 172 (2026-04-16) — City Page Expansion + Dallas Hub Upgrade
 
 **New pages created:**
