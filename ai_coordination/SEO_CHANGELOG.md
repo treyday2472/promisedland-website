@@ -5,6 +5,40 @@
 
 ---
 
+### Session 172 (2026-04-16) — City Page Expansion + Dallas Hub Upgrade
+
+**New pages created:**
+- `/irving-foreclosures` — Tier 2 standalone page, own canonical, FAQ schema, JS data loader filtering `irving` from Dallas County JSON
+- `/grand-prairie-foreclosures` — Tier 2 standalone page, own canonical, FAQ schema, JS data loader filtering `grandprairie` from Dallas County JSON. Includes note about Dallas/Tarrant County split.
+
+**dallas-foreclosures.html upgraded:**
+- Added above-the-fold CTA block (urgency banner with red border + "Get a Free Cash Offer" button linking to `#seoLeadForm`)
+- Added educational section: "What Happens After a Foreclosure Notice in Texas?" — 3-card grid (Notice Filed, Sale Date Set, Your Window to Act)
+- Added trust section: "How We Help Homeowners Facing Foreclosure" — 4-card grid (Sell Fast, No Repairs, Cash Offer, Flexible Closing)
+- Added `<span id="seoLeadForm"></span>` anchor before the CTA form div
+- Lead form conversion improvements: urgency badge above h3, new `situation` textarea field, red urgency text above submit button
+- Static city nav updated to include Irving and Grand Prairie pill links
+- JS CITY_SLUGS and CITY_LABELS updated to include `irving` and `grandprairie`
+
+**Internal linking strengthened:**
+- `stop-foreclosure-dallas.html` — Added "Related Pages" pill nav: /dallas-foreclosures, /sell-my-house-fast-dallas, /sell-inherited-house-dallas, /irving-foreclosures, /grand-prairie-foreclosures
+- `sell-my-house-fast-dallas.html` — Added "Related Pages" pill nav: same 5 pages
+- `sell-inherited-house-dallas.html` — Added "Related Pages" pill nav: /dallas-foreclosures, /stop-foreclosure-dallas, /sell-my-house-fast-dallas
+- `index.html` — Added Irving + Grand Prairie pill links under "Dallas Foreclosure Listings" section. DeSoto and Lancaster already linked.
+
+**sitemap.xml updated:**
+- Added `/irving-foreclosures` (priority 0.8, weekly)
+- Added `/grand-prairie-foreclosures` (priority 0.8, weekly)
+- Upgraded `/desoto-foreclosures` from 0.7 → 0.8
+- Upgraded `/lancaster-foreclosures` from 0.7 → 0.8
+- `/dallas-foreclosures` remains at 0.9
+- `/dallas-county-foreclosures-by-city` remains at 0.7
+
+**New coordination file:**
+- `ai_coordination/PROGRAMMATIC_SEO_PLAN.md` — Documents property-level page strategy (planned, not yet built)
+
+---
+
 ## Site Overview
 
 **Domain:** https://www.promisedlandpropertysolutions.com

@@ -80,15 +80,27 @@
   </url>
 
   <url>
+    <loc>https://www.promisedlandpropertysolutions.com/irving-foreclosures</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.promisedlandpropertysolutions.com/grand-prairie-foreclosures</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.promisedlandpropertysolutions.com/desoto-foreclosures</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.promisedlandpropertysolutions.com/lancaster-foreclosures</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
