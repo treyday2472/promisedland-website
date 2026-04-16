@@ -145,6 +145,20 @@
   </div>
 </section>
 
+<!-- IS THIS YOUR PROPERTY? CTA -->
+<div style="background:linear-gradient(135deg,#0f2027 0%,#1a2a1a 100%);border-top:2px solid #16a34a;border-bottom:1px solid rgba(255,255,255,.07);padding:1.75rem 1.5rem;">
+  <div style="max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;justify-content:space-between;">
+    <div style="flex:1;min-width:260px;">
+      <div style="font-size:1.1rem;font-weight:700;color:#86efac;margin-bottom:.5rem;">Is This Your Grand Prairie Property?</div>
+      <p style="color:rgba(245,247,250,.85);margin:0 0 .4rem;font-size:.93rem;">If your home is on this list, you may still be able to stop the foreclosure.</p>
+      <p style="color:rgba(245,247,250,.7);margin:0;font-size:.88rem;">We can help you sell fast or explore your options — at no cost to you.</p>
+    </div>
+    <div style="flex-shrink:0;">
+      <a href="#get-offer" style="display:inline-block;background:#16a34a;color:#fff;font-weight:700;padding:.65rem 1.5rem;border-radius:8px;text-decoration:none;font-size:.95rem;white-space:nowrap;">Talk to Us Now →</a>
+    </div>
+  </div>
+</div>
+
 <!-- RECORDS TABLE -->
 <div class="records-section">
   <div class="records-toolbar">
@@ -432,11 +446,21 @@
   var mu    = document.getElementById('meta-updated');
   var rows  = [];
 
+  function urgencyBadge(saleDate) {
+    if (!saleDate) return '';
+    var d = new Date(saleDate);
+    if (isNaN(d.getTime())) return '';
+    var daysOut = Math.ceil((d - new Date()) / 86400000);
+    if (daysOut <= 0) return '';
+    if (daysOut <= 7) return '<span style="display:inline-block;background:#dc2626;color:#fff;font-size:.65rem;font-weight:700;padding:.15rem .45rem;border-radius:4px;vertical-align:middle;margin-left:.4rem;white-space:nowrap;">URGENT</span>';
+    if (daysOut <= 14) return '<span style="display:inline-block;background:#b45309;color:#fff;font-size:.65rem;font-weight:700;padding:.15rem .45rem;border-radius:4px;vertical-align:middle;margin-left:.4rem;white-space:nowrap;">\u26a0 Auction Soon</span>';
+    return '';
+  }
   function row(r) {
     var a = toTitle(r.address)||'\u2014', o = toTitle(r.owner)||'\u2014';
     return '<tr data-s="'+(a+' '+o).toLowerCase()+'">'+
       '<td class="addr">'+a+'</td><td>'+o+'</td>'+
-      '<td class="date">'+fmtDate(r.sale_date)+'</td>'+
+      '<td class="date" style="white-space:nowrap;">'+fmtDate(r.sale_date)+urgencyBadge(r.sale_date)+'</td>'+
       '<td style="font-size:.78rem;color:var(--gray);">'+(r.case_number||'\u2014')+'</td></tr>';
   }
   function render(rr) {
