@@ -90,6 +90,8 @@ Matching enforcement was also added to the Flask backend — see `CHANGELOG_FOR_
 ### City Foreclosure Pages — Tier 2 (indexed independently)
 | URL | Status |
 |-----|--------|
+| /irving-foreclosures | Active, own canonical |
+| /grand-prairie-foreclosures | Active, own canonical |
 | /desoto-foreclosures | Active, own canonical |
 | /lancaster-foreclosures | Active, own canonical |
 
@@ -129,8 +131,8 @@ Matching enforcement was also added to the Flask backend — see `CHANGELOG_FOR_
 | /terms |
 
 ### Pages That Do NOT Exist Yet (opportunities)
-- /irving-foreclosures — Irving is a large DFW city, strong Tier 2 candidate
-- /grand-prairie-foreclosures — Large DFW city, strong Tier 2 candidate
+- /fort-worth-foreclosures — Tarrant County expansion (large market, separate county data feed needed)
+- /arlington-foreclosures — Tarrant County, same data feed as Fort Worth
 
 ---
 
@@ -276,8 +278,7 @@ Homepage (/)
 ## Known Gaps / Next Opportunities
 
 ### High priority
-- **/irving-foreclosures** — Irving is a major DFW city (~240k population). Would be a strong Tier 2 page. Needs: foreclosure data feed + page creation.
-- **/grand-prairie-foreclosures** — Another large DFW city (~200k population). Same opportunity.
+- **Tarrant County expansion** — Fort Worth and Arlington are large markets. Requires a separate county data feed. Both would be strong Tier 2 pages once data is available.
 
 ### Medium priority
 - **Tarrant County expansion** — Tarrant County (Fort Worth, Arlington) has the same Tyler Odyssey portal. Documents cost $1/page minimum but foreclosure data may be available. Would open a new geographic market.
