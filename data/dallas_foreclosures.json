@@ -1,21 +1,10 @@
 {
-  "exported_at": "2026-04-10T05:22:22.279086+00:00",
+  "exported_at": "2026-05-09T23:13:46.435784+00:00",
   "county": "Dallas",
   "state": "TX",
   "source_type": "foreclosure",
-  "total": 46,
+  "total": 39,
   "records": [
-    {
-      "id": 1211,
-      "address": "1320 Blair Dr. Mesquite, TX 75150",
-      "city": "",
-      "zip": "",
-      "owner": "Gerardo Hernandez and Karla C. Hernandez",
-      "sale_date": "2026-05-05",
-      "filing_date": null,
-      "case_number": "200900219022",
-      "score": 40
-    },
     {
       "id": 1210,
       "address": "1908 DRAKE STREET, Glenn Heights, TX 75154",
@@ -61,55 +50,11 @@
       "score": 40
     },
     {
-      "id": 1205,
-      "address": "1655 MCADAMS A VE DALLAS, TX 75224",
-      "city": "",
-      "zip": "",
-      "owner": "DOUGLAS COOPER WILSON AND HAYLEY SHIPLEY",
-      "sale_date": "2026-05-05",
-      "filing_date": null,
-      "case_number": "202300011665",
-      "score": 40
-    },
-    {
-      "id": 1204,
-      "address": "3723 BARNABUS ROAD DALLAS, TX 75241",
-      "city": "",
-      "zip": "",
-      "owner": "Roy Mcdowell, Betty Joyce Mcdowell",
-      "sale_date": "2026-05-05",
-      "filing_date": null,
-      "case_number": "200600173462",
-      "score": 40
-    },
-    {
-      "id": 1203,
-      "address": "1214 CHASE LN SEAGOVILLE, TX 75159",
-      "city": "",
-      "zip": "",
-      "owner": "Aaron D Moore",
-      "sale_date": "2026-04-07",
-      "filing_date": null,
-      "case_number": "",
-      "score": 40
-    },
-    {
       "id": 1202,
       "address": "3002 BRIARBROOK DRIVE, Seagoville, TX 75159",
       "city": "Seagoville",
       "zip": "75159",
       "owner": "CAROLYN D. ROLAND",
-      "sale_date": "2026-04-07",
-      "filing_date": null,
-      "case_number": "",
-      "score": 40
-    },
-    {
-      "id": 1201,
-      "address": "2913 Alto Drive Sachse, Tx 75048",
-      "city": "",
-      "zip": "",
-      "owner": "Keerthi Roy Indupalli",
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "",
@@ -127,20 +72,9 @@
       "score": 40
     },
     {
-      "id": 1199,
-      "address": "8305 Woodside Rd. Rowlett, TX 75088",
-      "city": "",
-      "zip": "",
-      "owner": "Eduardo Melendez-Coria and Daisy Brito",
-      "sale_date": "2026-04-07",
-      "filing_date": null,
-      "case_number": "201800070766",
-      "score": 40
-    },
-    {
       "id": 1198,
       "address": "1516 Kinglet St., Desoto, TX 7 5115",
-      "city": "Desoto",
+      "city": "DeSoto",
       "zip": "",
       "owner": "Marcus Richardson",
       "sale_date": "2026-04-07",
@@ -158,6 +92,17 @@
       "filing_date": null,
       "case_number": "20-000475",
       "score": 40
+    },
+    {
+      "id": 1195,
+      "address": "211 HAMDEN LANE, MESQUITE, TX 75149",
+      "city": "Mesquite",
+      "zip": "75149",
+      "owner": "Lone Ranger Construction, Inc, a Texas Corporation Mateo Price, President",
+      "sale_date": "2026-04-07",
+      "filing_date": null,
+      "case_number": "26-000026",
+      "score": 10
     },
     {
       "id": 1194,
@@ -212,6 +157,28 @@
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "201600278981",
+      "score": 40
+    },
+    {
+      "id": 1184,
+      "address": "1307 PRAIRIE DRIVE, Lancaster, TX 75146",
+      "city": "Lancaster",
+      "zip": "75146",
+      "owner": "RAYMOND PETRY",
+      "sale_date": "2026-02-09",
+      "filing_date": null,
+      "case_number": "",
+      "score": 40
+    },
+    {
+      "id": 1183,
+      "address": "1068 Bumble Bee Drive, Lancaster, TX 75134",
+      "city": "Lancaster",
+      "zip": "75134",
+      "owner": "Yvonne Arthur",
+      "sale_date": "2026-02-11",
+      "filing_date": null,
+      "case_number": "201700121346",
       "score": 40
     },
     {
@@ -270,17 +237,6 @@
       "score": 40
     },
     {
-      "id": 1173,
-      "address": "2113 ATLAS COURT GRAND PRAIRIE, TX 75052",
-      "city": "",
-      "zip": "",
-      "owner": "Lindsey Ann Jones and Thomas Jones",
-      "sale_date": "2026-04-07",
-      "filing_date": null,
-      "case_number": "",
-      "score": 40
-    },
-    {
       "id": 1171,
       "address": "4316 SIERRA DRIVE, Grand Prairie, TX 75052",
       "city": "Grand Prairie",
@@ -292,11 +248,11 @@
       "score": 40
     },
     {
-      "id": 1170,
-      "address": "1003 WYNNEWOOD DRIVE GLENN HEIGHTS, TX 75154",
-      "city": "",
-      "zip": "",
-      "owner": "Michael A Knighton AND Deborah Knighton",
+      "id": 1166,
+      "address": "5130 Barcelona Drive, Garland, Tx 75043",
+      "city": "Garland",
+      "zip": "75043",
+      "owner": "Maxington Holdings Llc",
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "",
@@ -327,7 +283,7 @@
     {
       "id": 1163,
       "address": "1721 TURTLE POINT DR, DESOTO, TX 75116",
-      "city": "Desoto",
+      "city": "DeSoto",
       "zip": "75116",
       "owner": "JESUS MANCILLAS AND SPOUSE, ALMA MANCILLAS",
       "sale_date": "2026-04-07",
@@ -369,17 +325,6 @@
       "score": 40
     },
     {
-      "id": 1155,
-      "address": "431 Kinslow Dr. Dallas, Tx 75217",
-      "city": "",
-      "zip": "",
-      "owner": "Jose A Minjares Amaya",
-      "sale_date": "2026-04-07",
-      "filing_date": null,
-      "case_number": "",
-      "score": 40
-    },
-    {
       "id": 1154,
       "address": "914 STILLMEADOW ROAD, DALLAS, TX 75232",
       "city": "Dallas",
@@ -393,7 +338,7 @@
     {
       "id": 824,
       "address": "405 KEARSARGE STREET, Desoto, TX 75115",
-      "city": "Desoto",
+      "city": "DeSoto",
       "zip": "75115",
       "owner": "CRAIG E. HARRISON",
       "sale_date": "2026-04-07",
@@ -404,7 +349,7 @@
     {
       "id": 823,
       "address": "528 BUFFALO CREEK DRIVE, Desoto, TX 75115",
-      "city": "Desoto",
+      "city": "DeSoto",
       "zip": "75115",
       "owner": "Stephen Barryer And Laturia Barryer",
       "sale_date": "2026-04-07",
@@ -415,7 +360,7 @@
     {
       "id": 822,
       "address": "816 SUMMIT DR, DESOTO, TX 75115",
-      "city": "Desoto",
+      "city": "DeSoto",
       "zip": "75115",
       "owner": "MARCOS ALVARADO",
       "sale_date": "2026-04-07",
@@ -426,23 +371,12 @@
     {
       "id": 819,
       "address": "2000 FLORA LANE, DESOTO, TX 75115",
-      "city": "Desoto",
+      "city": "DeSoto",
       "zip": "75115",
       "owner": "Dwight-Palmer and Jesslyn Palmer",
       "sale_date": "2026-04-07",
       "filing_date": null,
       "case_number": "26-000436",
-      "score": 40
-    },
-    {
-      "id": 816,
-      "address": "2913 Alto Drive Sachse, TX 75048",
-      "city": "",
-      "zip": "",
-      "owner": "Keerthi Roy Indupalli",
-      "sale_date": "2026-04-07",
-      "filing_date": null,
-      "case_number": "",
       "score": 40
     },
     {
@@ -468,17 +402,6 @@
       "score": 40
     },
     {
-      "id": 793,
-      "address": "1969 NEWPORT DR",
-      "city": "",
-      "zip": "",
-      "owner": "Kent Wilson",
-      "sale_date": "2026-04-07",
-      "filing_date": null,
-      "case_number": "201800164053",
-      "score": 40
-    },
-    {
       "id": 758,
       "address": "2146 Aspen Dr, Dallas, Tx",
       "city": "Dallas",
@@ -490,14 +413,14 @@
       "score": 40
     },
     {
-      "id": 1160,
-      "address": "2538 Camel Court Dallas, Texas 75241",
-      "city": "",
-      "zip": "",
-      "owner": "BRIAN BROOKS",
+      "id": 1169,
+      "address": "710 INTREPID DRIVE, Garland, TX 75043",
+      "city": "Garland",
+      "zip": "75043",
+      "owner": "Pattie Estate of O'Donnell",
       "sale_date": "2026-04-07",
-      "filing_date": "2026-02-19",
-      "case_number": "201400329112",
+      "filing_date": "2026-02-12",
+      "case_number": "",
       "score": 50
     },
     {
