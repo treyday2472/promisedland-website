@@ -672,12 +672,19 @@ function initAutocomplete() {
     };
     var streetNum = get("street_number");
     var route = get("route");
-    input.value = streetNum ? streetNum + " " + route : route;
-    input.dataset.state = getShort("administrative_area_level_1");
+    var street = streetNum ? streetNum + " " + route : route;
+    var city = get("locality") || get("sublocality") || get("neighborhood");
+    var stateShort = getShort("administrative_area_level_1");
+    var zip = get("postal_code");
+    // Store street-only for backend; display full address so users see what they selected
+    input.dataset.street = street;
+    input.dataset.state = stateShort;
+    var displayParts = [street, city, stateShort, zip].filter(Boolean);
+    input.value = displayParts.join(", ");
     var cityHidden = document.getElementById("city_hidden");
     var zipHidden  = document.getElementById("zip_hidden");
-    if (cityHidden) cityHidden.value = get("locality") || get("sublocality") || get("neighborhood");
-    if (zipHidden)  zipHidden.value  = get("postal_code");
+    if (cityHidden) cityHidden.value = city;
+    if (zipHidden)  zipHidden.value  = zip;
   });
 }
 
@@ -693,7 +700,10 @@ document.getElementById("leadForm").addEventListener("submit", async function (e
 
   const data = {};
   new FormData(this).forEach((v, k) => { data[k] = v; });
-  data.state   = document.getElementById("address").dataset.state || "TX";
+  const addrEl = document.getElementById("address");
+  // Use street-only component as the backend address field (city/state/zip sent separately)
+  if (addrEl && addrEl.dataset.street) { data.address = addrEl.dataset.street; }
+  data.state   = (addrEl && addrEl.dataset.state) || "TX";
   data.source  = "website_homepage";
   // sms_consent is already "yes" — validated before advancing to step 2
 
