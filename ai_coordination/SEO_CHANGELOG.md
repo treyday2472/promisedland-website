@@ -5,6 +5,13 @@
 
 ---
 
+### Session (2026-09-01) — Managed Turnstile Seller-Form Protection
+
+- Added one shared `lead-form-security.js` guard to all 25 public pages containing `#leadForm`.
+- The guard renders the production Cloudflare Managed Turnstile widget, submits the one-time proof with the existing `FormData`, adds server-validated honeypot and elapsed-time fields, and blocks form submission with a friendly message when proof is absent.
+- No private key is present in this repository; server-side verification and the private secret remain in DealBot/Render.
+- Verified all 25 form pages load the guard, the shared script passes Node syntax validation, and its timing, honeypot, challenge, and Turnstile response elements appear in a local browser check.
+
 ### Session 173 (2026-04-16) — sale_date Validation Enforcement (SEO Trust Fix)
 
 **Problem:**
