@@ -175,7 +175,7 @@
 
           <div id="step1Error" style="display:none;color:#f87171;font-size:.82rem;font-weight:600;margin-bottom:.5rem;padding:.4rem .6rem;background:rgba(239,68,68,.1);border-radius:6px;"></div>
 
-          <button type="button" class="btn btn-gold btn-full" onclick="continueToStep2()">
+          <button type="button" class="btn btn-gold btn-full" id="step1ContinueBtn" onclick="continueToStep2()">
             Continue →
           </button>
 
@@ -606,7 +606,12 @@
 
 <script>
 /* ---- Multi-step form navigation ---- */
-function continueToStep2() {
+var continuationToken = "";
+var clientSubmissionId = (window.crypto && window.crypto.randomUUID)
+  ? window.crypto.randomUUID()
+  : "web-" + Date.now() + "-" + Math.random().toString(36).slice(2);
+
+async function continueToStep2() {
   var firstName = document.getElementById("first_name").value.trim();
   var phone     = document.getElementById("phone").value.trim();
   var address   = document.getElementById("address").value.trim();
@@ -626,7 +631,58 @@ function continueToStep2() {
     return;
   }
 
+  // Going Back and Continue again must never create a second Lead or reuse the
+  // one-time Turnstile proof. The signed continuation already owns this form.
+  if (continuationToken) {
+    revealStep2();
+    return;
+  }
+
+  var proof = document.querySelector('[name="cf-turnstile-response"]');
+  if (!proof || !proof.value) {
+    showStep1Err(errEl, "Please complete the security check to continue.");
+    return;
+  }
+
+  var continueBtn = document.getElementById("step1ContinueBtn");
+  continueBtn.disabled = true;
+  continueBtn.textContent = "Saving…";
+
+  var data = {};
+  new FormData(document.getElementById("leadForm")).forEach(function (v, k) { data[k] = v; });
+  var addrEl = document.getElementById("address");
+  if (addrEl && addrEl.dataset.street) data.address = addrEl.dataset.street;
+  data.state = (addrEl && addrEl.dataset.state) || "TX";
+  data.source = "website_homepage";
+  data.client_submission_id = clientSubmissionId;
+
+  try {
+    var response = await fetch("https://dealbot2-0.onrender.com/api/web-leads/start", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    var result = await response.json();
+    if (!response.ok || !result.ok || !result.continuation_token) {
+      throw new Error(result.error || "We could not save your information. Please try again.");
+    }
+    continuationToken = result.continuation_token;
+    document.getElementById("leadForm").dataset.continuationReady = "yes";
+  } catch (error) {
+    showStep1Err(errEl, error.message || "We could not save your information. Please try again.");
+    if (window.resetSellerTurnstile) window.resetSellerTurnstile();
+    continueBtn.disabled = false;
+    continueBtn.textContent = "Continue →";
+    return;
+  }
+
   errEl.style.display = "none";
+  continueBtn.disabled = false;
+  continueBtn.textContent = "Continue →";
+  revealStep2();
+}
+
+function revealStep2() {
   document.getElementById("formStep1").style.display = "none";
   document.getElementById("formStep2").style.display = "block";
 
@@ -688,8 +744,8 @@ function initAutocomplete() {
   });
 }
 
-/* ---- Form submission → DealBot backend (fires only on Step 2 submit) ---- */
-const BACKEND = "https://dealbot2-0.onrender.com/api/web-leads/submit";
+/* ---- Step 2 enriches the Lead already saved by Continue ---- */
+const BACKEND = "https://dealbot2-0.onrender.com/api/web-leads/complete";
 
 document.getElementById("leadForm").addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -705,7 +761,7 @@ document.getElementById("leadForm").addEventListener("submit", async function (e
   if (addrEl && addrEl.dataset.street) { data.address = addrEl.dataset.street; }
   data.state   = (addrEl && addrEl.dataset.state) || "TX";
   data.source  = "website_homepage";
-  // sms_consent is already "yes" — validated before advancing to step 2
+  data.continuation_token = continuationToken;
 
   try {
     const res = await fetch(BACKEND, {

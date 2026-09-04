@@ -21,7 +21,9 @@
   challenge.id = "sellerTurnstile";
   challenge.style.margin = "12px 0";
   var submit = form.querySelector('[type="submit"]');
-  if (submit) submit.parentNode.insertBefore(challenge, submit);
+  var stepOneContinue = document.getElementById("step1ContinueBtn");
+  if (stepOneContinue) stepOneContinue.parentNode.insertBefore(challenge, stepOneContinue);
+  else if (submit) submit.parentNode.insertBefore(challenge, submit);
   else form.appendChild(challenge);
 
   function showVerificationError() {
@@ -41,6 +43,7 @@
 
   if (submit) submit.dataset.originalText = submit.textContent;
   form.addEventListener("submit", function (event) {
+    if (form.dataset.continuationReady === "yes") return;
     var proof = form.querySelector('[name="cf-turnstile-response"]');
     if (!proof || !proof.value) {
       event.preventDefault();
@@ -49,9 +52,15 @@
     }
   }, true);
 
+  var widgetId = null;
+
+  window.resetSellerTurnstile = function () {
+    if (window.turnstile && widgetId !== null) window.turnstile.reset(widgetId);
+  };
+
   window.onSellerTurnstileLoaded = function () {
     if (!window.turnstile) return;
-    window.turnstile.render("#sellerTurnstile", {
+    widgetId = window.turnstile.render("#sellerTurnstile", {
       sitekey: "0x4AAAAAAEkfZOqnFgiY7jKx",
       action: "web_lead_submit",
       theme: "auto"

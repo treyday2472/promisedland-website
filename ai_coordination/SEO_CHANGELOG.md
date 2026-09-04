@@ -5,6 +5,15 @@
 
 ---
 
+### Session (2026-09-04) — Durable Homepage Step-1 Lead Capture
+
+- Homepage Continue now saves the consented Step-1 seller identity to DealBot before revealing Step 2.
+- Managed Turnstile moved into visible Step 1 and is consumed only by the lead-creation request.
+- Optional Step 2 uses DealBot's signed continuation token to enrich the same Lead without replaying Turnstile or creating a duplicate.
+- A stable browser submission id lets a retry recover the original Lead if the successful Step-1 response was lost.
+- Failed Step-1 requests reset Turnstile so the seller can retry without refreshing and re-entering the form.
+- The backend must deploy before this website change because the page depends on `/api/web-leads/start` and `/api/web-leads/complete`.
+
 ### Session (2026-09-01) — Managed Turnstile Seller-Form Protection
 
 - Added one shared `lead-form-security.js` guard to all 25 public pages containing `#leadForm`.
